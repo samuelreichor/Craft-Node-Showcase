@@ -1,0 +1,14 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+COMMIT_MSG_FILE="$1"
+COMMIT_MSG_CONTENT=$(cat "$COMMIT_MSG_FILE")
+
+if [[ $COMMIT_MSG_CONTENT =~ ^(fixup!|squash!) ]]; then
+    exit 0
+fi
+
+if ! [[ $COMMIT_MSG_CONTENT =~ ^[A-Z][^A-Z]+$ ]]; then
+    echo "Error: The commit message should start with an uppercase letter and the rest should be written in lowercase."
+    exit 1
+fi

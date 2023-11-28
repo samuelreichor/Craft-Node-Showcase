@@ -1,0 +1,278 @@
+field: 4fd5d92e-484c-47a3-b63b-5443cb2736db # Content
+fieldLayouts:
+  38ff35ad-18bb-4aa5-a67c-7139adc83167:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: bfd38180-5ad7-4644-a0a0-598e5dbed5fa # Image
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 33b29778-7b32-47a4-bd85-f499de65600d
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            elementCondition: null
+            fieldUid: 7662cd3a-0217-4164-bff5-a804bce29648 # Switched
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 432f89cd-a3b3-4c31-97b6-81930e475aca
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            elementCondition: null
+            fieldUid: 3646d014-05d7-44d6-ac01-1930aade6203 # Text
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: d4bec1e7-2706-472f-a5cf-272a91f82032
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: e3bbc91c-6b7f-4699-aa15-8c102ee467b2 # Link Information
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 7a6be9c9-cfcf-4692-8c64-3b24c4149719
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            elementCondition: null
+            fieldUid: a4d10e62-ba56-47c3-bb40-ced4c8bd1f7d # Link Style
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: d831bd89-5ceb-4091-af7b-ba151cf83439
+            userCondition: null
+            warning: null
+            width: 50
+        name: Content
+        uid: 1fe82196-af93-43b9-8b7b-b5b7d67e7203
+        userCondition: null
+fields:
+  3646d014-05d7-44d6-ac01-1930aade6203: # Text
+    columnSuffix: null
+    contentColumnType: text
+    fieldGroup: null
+    handle: text
+    instructions: null
+    name: Text
+    searchable: true
+    settings:
+      availableTransforms: ''
+      availableVolumes: ''
+      columnType: text
+      configSelectionMode: choose
+      defaultTransform: ''
+      manualConfig: ''
+      purifierConfig: null
+      purifyHtml: true
+      redactorConfig: null
+      removeEmptyTags: true
+      removeInlineStyles: true
+      removeNbsp: true
+      showHtmlButtonForNonAdmins: false
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      uiMode: enlarged
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\redactor\Field
+  7662cd3a-0217-4164-bff5-a804bce29648: # Switched
+    columnSuffix: null
+    contentColumnType: boolean
+    fieldGroup: null
+    handle: switched
+    instructions: null
+    name: Switched
+    searchable: false
+    settings:
+      default: false
+      offLabel: null
+      onLabel: null
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Lightswitch
+  a4d10e62-ba56-47c3-bb40-ced4c8bd1f7d: # Link Style
+    columnSuffix: nzuopmmg
+    contentColumnType: string
+    fieldGroup: null
+    handle: linkStyle
+    instructions: null
+    name: 'Link Style'
+    searchable: false
+    settings:
+      columnType: string
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - 'Button Primary'
+            -
+              - value
+              - primary
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - 'Button Secondary'
+            -
+              - value
+              - secondary
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Link
+            -
+              - value
+              - link
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+  bfd38180-5ad7-4644-a0a0-598e5dbed5fa: # Image
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: image
+    instructions: null
+    name: Image
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      allowSubfolders: false
+      allowUploads: true
+      allowedKinds:
+        - image
+      branchLimit: null
+      defaultUploadLocationSource: 'volume:5cce6b80-a35c-4207-82e0-3940c9091376' # Images
+      defaultUploadLocationSubpath: null
+      localizeRelations: false
+      maintainHierarchy: false
+      maxRelations: 1
+      minRelations: null
+      previewMode: full
+      restrictFiles: true
+      restrictLocation: false
+      restrictedDefaultUploadSubpath: null
+      restrictedLocationSource: 'volume:5cce6b80-a35c-4207-82e0-3940c9091376' # Images
+      restrictedLocationSubpath: null
+      selectionCondition:
+        __assoc__:
+          -
+            - elementType
+            - craft\elements\Asset
+          -
+            - fieldContext
+            - global
+          -
+            - class
+            - craft\elements\conditions\assets\AssetCondition
+      selectionLabel: null
+      showSiteMenu: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      sources:
+        - 'volume:5cce6b80-a35c-4207-82e0-3940c9091376' # Images
+        - 'volume:c5b55746-9b95-40a4-9e04-178618e02cff' # Graphics
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: large
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+  e3bbc91c-6b7f-4699-aa15-8c102ee467b2: # Link Information
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: linkInformation
+    instructions: null
+    name: 'Link Information'
+    searchable: false
+    settings:
+      allowCustomText: true
+      allowTarget: true
+      autoNoReferrer: false
+      customTextMaxLength: 0
+      customTextRequired: true
+      defaultLinkName: asset
+      defaultText: 'Set some Text'
+      enableAllLinkTypes: false
+      enableAriaLabel: false
+      enableElementCache: false
+      enableTitle: false
+      typeSettings:
+        asset:
+          allowCrossSiteLink: false
+          allowCustomQuery: false
+          enabled: false
+          sources: '*'
+        category:
+          allowCrossSiteLink: false
+          allowCustomQuery: false
+          enabled: false
+          sources: '*'
+        custom:
+          allowAliases: false
+          disableValidation: false
+          enabled: true
+        email:
+          allowAliases: false
+          disableValidation: false
+          enabled: true
+        entry:
+          allowCrossSiteLink: false
+          allowCustomQuery: false
+          enabled: true
+          sources: '*'
+        site:
+          enabled: true
+          sites: '*'
+        tel:
+          allowAliases: false
+          disableValidation: false
+          enabled: true
+        url:
+          allowAliases: false
+          disableValidation: false
+          enabled: true
+        user:
+          allowCrossSiteLink: false
+          allowCustomQuery: false
+          enabled: false
+          sources: '*'
+    translationKeyFormat: null
+    translationMethod: none
+    type: lenz\linkfield\fields\LinkField
+handle: imageAndText
+name: 'Image and Text'
+sortOrder: 3

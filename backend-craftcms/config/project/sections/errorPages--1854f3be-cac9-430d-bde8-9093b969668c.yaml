@@ -1,0 +1,24 @@
+defaultPlacement: end
+enableVersioning: true
+handle: errorPages
+name: Errors
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+      -
+        - refresh
+        - '1'
+propagationMethod: all
+siteSettings:
+  d0b81f54-9f0b-47ff-8b70-ede217a82e9d: # Default
+    enabledByDefault: false
+    hasUrls: true
+    template: _pages/entry.twig
+    uriFormat: 'errors/{slug}'
+type: channel

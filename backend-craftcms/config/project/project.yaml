@@ -1,0 +1,177 @@
+dateModified: 1701096632
+email:
+  fromEmail: admin@fredmansky.at
+  fromName: $SITE_NAME
+  replyToEmail: null
+  template: null
+  transportSettings:
+    command: ''
+  transportType: craft\mail\transportadapters\Sendmail
+fs:
+  graphics:
+    hasUrls: true
+    name: Graphics
+    settings:
+      path: '@webroot/assets/graphics'
+    type: craft\fs\Local
+    url: '@web/assets/graphics'
+  images:
+    hasUrls: true
+    name: Images
+    settings:
+      path: '@webroot/assets/images'
+    type: craft\fs\Local
+    url: '@web/assets/images'
+  templateImages:
+    hasUrls: true
+    name: 'Template Images'
+    settings:
+      path: '@webroot/assets/templateImages'
+    type: craft\fs\Local
+    url: '@web/assets/templateImages'
+  users:
+    hasUrls: false
+    name: Users
+    settings:
+      path: '@webroot/assets/users'
+    type: craft\fs\Local
+    url: '@web/assets/users'
+meta:
+  __names__:
+    1a6fb051-ad40-4976-811b-de8f4ae5d694: Caption # Caption
+    1a680df0-fe66-4d73-b7f9-c9eda8c96f05: Size # Size
+    1e51ec97-9959-4860-8d78-a37833c6a526: Common # Common
+    2c9430af-5272-4806-a33f-9364d065ac83: Default # Default
+    3ab0bfb1-c5e0-447f-9f41-2fcc08d15e94: Form # Form
+    3bd74465-5f86-4a4e-8e11-284e7c2e92eb: Image # Image
+    4ba32469-66ba-4233-8faf-e5f819134881: Headline # Headline
+    4fd5d92e-484c-47a3-b63b-5443cb2736db: Content # Content
+    5b4128b6-7a56-4620-a5a3-fa59c4f90211: 'Contact Form' # Contact Form
+    5cce6b80-a35c-4207-82e0-3940c9091376: Images # Images
+    8a2c7f95-44e5-429d-bac0-150ce7db3824: Text # Text
+    8b7f0655-687b-4f29-82df-cbe663f63904: Link # Link
+    9b8f35b7-0309-476b-9ca6-654d6d620e69: 'Public Schema' # Public Schema
+    9c216cc1-6bef-4496-a511-d619bfcd210d: 'Seo Settings' # Seo Settings
+    9eb431c5-7fe6-4c45-be5d-6c94ade7993e: Assets # Assets
+    23fbe8f3-d0a4-499e-9bdf-1d2dc5a999f5: Image # Image
+    25d4c40f-03b6-4c00-bda2-7849d4d80197: 'Link Information' # Link Information
+    78eb4c24-9ee0-4fe1-85b6-902352ffc6af: Code # Code
+    114adcdf-ab31-4d8f-8fb5-add7702e476a: Icon # Icon
+    683a4e58-0d04-4452-9b24-4f228753d538: Text # Text
+    695fdc9b-7cb6-4172-ad4a-2194854c587e: Text # Text
+    709d1f4c-cde7-4279-b196-7dbd0d3c1d4a: HeroSection # HeroSection
+    1854f3be-cac9-430d-bde8-9093b969668c: Errors # Errors
+    3646d014-05d7-44d6-ac01-1930aade6203: Text # Text
+    4029eccd-d1d9-4076-81f9-58f315a363f2: Default # Default
+    5502ecc3-271c-47e8-99ff-d06fe1a603a2: Editors # Editors
+    7662cd3a-0217-4164-bff5-a804bce29648: Switched # Switched
+    7892a650-1f8f-47ea-9a31-694b7a24cf1b: Image # Image
+    62372bbd-3f5b-45fd-8e7c-2dc66fc267ea: 'Image and Text' # Image and Text
+    63249a08-b168-44aa-a8fb-31996305dc6c: Image # Image
+    074609d1-90b2-4a51-a98f-a64d2dc87363: 'Link Style' # Link Style
+    745244db-cd1b-4b14-ab0f-07d6ddcf070f: Home # Home
+    8352538e-0d17-48be-bf6d-c03a439cb40a: 'Template Images' # Template Images
+    61520300-516c-4f2d-b7ec-b377b45ac195: New # New
+    a4d10e62-ba56-47c3-bb40-ced4c8bd1f7d: 'Link Style' # Link Style
+    a94c302a-1da9-4e98-96b1-36d23ce0235b: Pages # Pages
+    b63d74dd-526d-4b25-a4e1-180d20f51923: Contact # Contact
+    be62c9df-631a-4395-99fc-94e2eda37b7b: ContentBuilder # ContentBuilder
+    bfd38180-5ad7-4644-a0a0-598e5dbed5fa: Image # Image
+    c5b55746-9b95-40a4-9e04-178618e02cff: Graphics # Graphics
+    c93f785e-a2de-4be1-b982-2b15a9ecfb52: Home # Home
+    d0b81f54-9f0b-47ff-8b70-ede217a82e9d: Default # Default
+    d3d09627-c645-48dc-8a0c-c1323a8aeefe: Headline # Headline
+    d99f9653-f764-42e2-8722-2d17f41c2367: Size # Size
+    d955bedd-4720-4536-84d6-fa27e730d27a: Default # Default
+    e3bbc91c-6b7f-4699-aa15-8c102ee467b2: 'Link Information' # Link Information
+    e4838186-e61d-4455-ae88-4e0b9abe8711: Users # Users
+    f8880613-ce1c-42ee-adaa-3a49591c464f: Logos # Logos
+    fd83b0ff-09c2-4451-9f86-4c846bf92557: 'Main Navigation' # Main Navigation
+plugins:
+  blitz-recommendations:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.1.0
+  cp-css:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.0.0
+    settings:
+      additionalCss: ''
+      cacheBusting: true
+      cssFile: cp.css
+  cp-field-inspect:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  dumper:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  elements-panel:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  empty-coalesce:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  formie:
+    edition: standard
+    enabled: true
+    licenseKey: $PLUGIN_FORMIE
+    schemaVersion: 2.0.11
+  image-resizer:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.0.0
+  imager-x:
+    edition: pro
+    enabled: true
+    licenseKey: $PLUGIN_IMAGER_X
+    schemaVersion: 4.0.0
+  navigation:
+    edition: standard
+    enabled: true
+    licenseKey: $PLUGIN_NAVIGATION
+    schemaVersion: 2.0.7
+  redactor:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.3.0
+  seomatic:
+    edition: standard
+    enabled: true
+    licenseKey: $PLUGIN_SEOMATIC
+    schemaVersion: 3.0.12
+  smith:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  super-table:
+    edition: standard
+    enabled: true
+    schemaVersion: 3.0.0
+  templatecomments:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  twig-profiler:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  typedlinkfield:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.0.0
+  vite:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+system:
+  edition: pro
+  live: true
+  name: $SITE_NAME
+  retryDuration: null
+  schemaVersion: 4.5.3.0
+  timeZone: Europe/Vienna

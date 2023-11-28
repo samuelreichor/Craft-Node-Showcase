@@ -1,0 +1,61 @@
+isPublic: true
+name: 'Public Schema'
+scope:
+  - 'sites.d0b81f54-9f0b-47ff-8b70-ede217a82e9d:read' # Default
+  - 'elements.drafts:read'
+  - 'elements.revisions:read'
+  - 'elements.inactive:read'
+  - 'sections.1854f3be-cac9-430d-bde8-9093b969668c:read' # Errors
+  - 'entrytypes.d955bedd-4720-4536-84d6-fa27e730d27a:read' # Default
+  - 'sections.745244db-cd1b-4b14-ab0f-07d6ddcf070f:read' # Home
+  - 'entrytypes.c93f785e-a2de-4be1-b982-2b15a9ecfb52:read' # Home
+  - 'sections.a94c302a-1da9-4e98-96b1-36d23ce0235b:read' # Pages
+  - 'entrytypes.4029eccd-d1d9-4076-81f9-58f315a363f2:read' # Default
+  - 'entrytypes.b63d74dd-526d-4b25-a4e1-180d20f51923:read' # Contact
+  - 'volumes.5cce6b80-a35c-4207-82e0-3940c9091376:read' # Images
+  - 'volumes.8352538e-0d17-48be-bf6d-c03a439cb40a:read' # Template Images
+  - 'volumes.c5b55746-9b95-40a4-9e04-178618e02cff:read' # Graphics
+  - 'volumes.e4838186-e61d-4455-ae88-4e0b9abe8711:read' # Users
+  - 'usergroups.everyone:read'
+  - 'usergroups.5502ecc3-271c-47e8-99ff-d06fe1a603a2:read' # Editors
+  - 'formieForms.all:read'
+  - 'formieSubmissions.all:read'
+  - 'navigationNavs.all:read'
+  - 'navigationNavs.fd83b0ff-09c2-4451-9f86-4c846bf92557:read' # Main Navigation
+  - 'seomatic.all:read'
+  - 'sections.1854f3be-cac9-430d-bde8-9093b969668c:edit' # Errors
+  - 'entrytypes.d955bedd-4720-4536-84d6-fa27e730d27a:edit' # Default
+  - 'entrytypes.d955bedd-4720-4536-84d6-fa27e730d27a:create' # Default
+  - 'entrytypes.d955bedd-4720-4536-84d6-fa27e730d27a:save' # Default
+  - 'entrytypes.d955bedd-4720-4536-84d6-fa27e730d27a:delete' # Default
+  - 'sections.745244db-cd1b-4b14-ab0f-07d6ddcf070f:edit' # Home
+  - 'entrytypes.c93f785e-a2de-4be1-b982-2b15a9ecfb52:save' # Home
+  - 'sections.a94c302a-1da9-4e98-96b1-36d23ce0235b:edit' # Pages
+  - 'entrytypes.4029eccd-d1d9-4076-81f9-58f315a363f2:edit' # Default
+  - 'entrytypes.4029eccd-d1d9-4076-81f9-58f315a363f2:create' # Default
+  - 'entrytypes.4029eccd-d1d9-4076-81f9-58f315a363f2:save' # Default
+  - 'entrytypes.4029eccd-d1d9-4076-81f9-58f315a363f2:delete' # Default
+  - 'entrytypes.b63d74dd-526d-4b25-a4e1-180d20f51923:edit' # Contact
+  - 'entrytypes.b63d74dd-526d-4b25-a4e1-180d20f51923:create' # Contact
+  - 'entrytypes.b63d74dd-526d-4b25-a4e1-180d20f51923:save' # Contact
+  - 'entrytypes.b63d74dd-526d-4b25-a4e1-180d20f51923:delete' # Contact
+  - 'volumes.5cce6b80-a35c-4207-82e0-3940c9091376:edit' # Images
+  - 'volumes.5cce6b80-a35c-4207-82e0-3940c9091376:create' # Images
+  - 'volumes.5cce6b80-a35c-4207-82e0-3940c9091376:save' # Images
+  - 'volumes.5cce6b80-a35c-4207-82e0-3940c9091376:delete' # Images
+  - 'volumes.8352538e-0d17-48be-bf6d-c03a439cb40a:edit' # Template Images
+  - 'volumes.8352538e-0d17-48be-bf6d-c03a439cb40a:create' # Template Images
+  - 'volumes.8352538e-0d17-48be-bf6d-c03a439cb40a:save' # Template Images
+  - 'volumes.8352538e-0d17-48be-bf6d-c03a439cb40a:delete' # Template Images
+  - 'volumes.c5b55746-9b95-40a4-9e04-178618e02cff:edit' # Graphics
+  - 'volumes.c5b55746-9b95-40a4-9e04-178618e02cff:create' # Graphics
+  - 'volumes.c5b55746-9b95-40a4-9e04-178618e02cff:save' # Graphics
+  - 'volumes.c5b55746-9b95-40a4-9e04-178618e02cff:delete' # Graphics
+  - 'volumes.e4838186-e61d-4455-ae88-4e0b9abe8711:edit' # Users
+  - 'volumes.e4838186-e61d-4455-ae88-4e0b9abe8711:create' # Users
+  - 'volumes.e4838186-e61d-4455-ae88-4e0b9abe8711:save' # Users
+  - 'volumes.e4838186-e61d-4455-ae88-4e0b9abe8711:delete' # Users
+  - 'formieSubmissions.all:edit'
+  - 'formieSubmissions.all:create'
+  - 'formieSubmissions.all:save'
+  - 'formieSubmissions.all:delete'

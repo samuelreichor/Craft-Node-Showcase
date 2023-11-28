@@ -1,0 +1,21 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "devDependencies": {
+    "@nuxtjs/tailwindcss": "^6.10.1",
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "ferdi": "^0.0.21",
+    "nuxt": "^3.8.2",
+    "vite-svg-loader": "^4.0.0"
+  },
+  "dependencies": {
+    "@nuxtjs/robots": "^3.0.0",
+    "nuxt-graphql-client": "^0.2.31"
+  }
+}
