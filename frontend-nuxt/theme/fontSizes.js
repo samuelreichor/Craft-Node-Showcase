@@ -25,11 +25,11 @@ const calcModularScale = (scale = 0) => {
 };
 
 module.exports = {
-  'xs': calcModularScale(-2),
-  'sm': calcModularScale(-1),
-  'base': calcModularScale(0),
-  'lg': calcModularScale(1),
-  'xl': calcModularScale(2),
+  xs: calcModularScale(-2),
+  sm: calcModularScale(-1),
+  base: calcModularScale(0),
+  lg: calcModularScale(1),
+  xl: calcModularScale(2),
   '2xl': calcModularScale(3),
   '3xl': calcModularScale(4),
   '4xl': calcModularScale(5),
@@ -39,4 +39,3 @@ module.exports = {
   '8xl': calcModularScale(9),
   '9xl': calcModularScale(10),
 };
-

@@ -4,10 +4,7 @@ const fontSettings = require('./theme/fonts');
 const fontSizeSettings = require('./theme/fontSizes');
 
 module.exports = {
-  content: [
-    "./index.html",
-    "./src/**/*.{vue,js,ts,jsx,tsx}",
-  ],
+  content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
   theme: {
     colors: colorSettings,
     fontFamily: fontSettings,
@@ -17,7 +14,5 @@ module.exports = {
   corePlugins: {
     aspectRatio: false,
   },
-  plugins: [
-    require('@tailwindcss/aspect-ratio'),
-  ],
-}
+  plugins: [require('@tailwindcss/aspect-ratio')],
+};

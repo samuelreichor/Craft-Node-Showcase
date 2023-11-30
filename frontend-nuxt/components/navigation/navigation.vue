@@ -1,5 +1,5 @@
 <template>
-    <ul class="flex gap-5" v-if="data">
+  <!--     <ul class="flex gap-5" v-if="data">
         <li v-if="data.navigationNodes" v-for="node in data.navigationNodes">
             <NuxtLink :to="node.url" class="">
                 {{ node.title }}
@@ -12,11 +12,14 @@
                 </ul>
             </NuxtLink>
         </li>
-    </ul>
+    </ul> -->
+  navigationNodes
 </template>
 
 <script setup lang="ts">
-    const { data } = await useAsyncGql({
+/*     const { data } = await useAsyncGql({
         operation: 'navigation',
-    });
+    }); */
 </script>
+
+NODE_TLS_REJECT_UNAUTHORIZED=0 node .output/server/index.mjs

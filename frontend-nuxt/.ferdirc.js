@@ -1,42 +1,44 @@
 module.exports = {
   defaults: {
-    template: true,
-    css: true,
-    javascript: true,
+    template: false,
+    css: false,
+    javascript: false,
     vue: true,
     fractal: false,
     vuexModule: false,
   },
   fileHeader: {
-    authors: [{
-      name: 'Samuel Reichör',
-      email: 'samuel@fredmansky.at'
-    }],
-    projectName: 'ProjectName'
+    authors: [
+      {
+        name: 'Samuel Reichör',
+        email: 'samuel@fredmansky.at',
+      },
+    ],
+    projectName: 'ProjectName',
   },
   files: {
     template: {
       name: '',
       postfix: '-template',
       extension: 'html',
-      description: 'ferdi should create a Template File'
+      description: 'ferdi should create a Template File',
     },
     css: {
       name: '',
       postfix: '-style',
       extension: 'pcss',
-      description: 'ferdi should create Stylesheet File'
+      description: 'ferdi should create Stylesheet File',
     },
     javascript: {
       name: '',
       postfix: '-script',
       extension: 'js',
-      description: 'ferdi should create JavaScript File'
+      description: 'ferdi should create JavaScript File',
     },
     vue: {
       name: '',
       postfix: '',
-      extension: 'vue'
+      extension: 'vue',
     },
     vuexModule: {
       name: '',
@@ -51,7 +53,7 @@ module.exports = {
     pathOptions: {
       // the first character of each key works as an alias for the path so you could use `-a` as an alias for atomic
       components: 'components/',
-      pages: 'pages/'
-    }
-  }
+      pages: 'pages/',
+    },
+  },
 };

@@ -1,0 +1,37 @@
+fragment Image on images_Asset {
+  src: url
+  alt: title
+  imageCaption
+  pluginOptimizedImagesAuto {
+    src
+    srcset
+    srcsetWebp
+    placeholderImage
+    placeholderWidth
+    placeholderHeight
+  }
+  pluginOptimizedImagesLandscape {
+    src
+    srcset
+    srcsetWebp
+    placeholderImage
+    placeholderWidth
+    placeholderHeight
+  }
+  pluginOptimizedImagesPortrait {
+    src
+    srcset
+    srcsetWebp
+    placeholderImage
+    placeholderWidth
+    placeholderHeight
+  }
+  pluginOptimizedImagesSquare {
+    src
+    srcset
+    srcsetWebp
+    placeholderImage
+    placeholderWidth
+    placeholderHeight
+  }
+}

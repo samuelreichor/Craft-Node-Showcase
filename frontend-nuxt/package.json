@@ -2,20 +2,40 @@
   "private": true,
   "scripts": {
     "build": "nuxt build",
+    "build:dev": "nuxt build && NODE_TLS_REJECT_UNAUTHORIZED=0 node .output/server/index.mjs",
     "dev": "nuxt dev",
+    "lint:ts": "eslint --ext \".ts,.vue\" --ignore-path .gitignore .",
+    "lint:prettier": "prettier --check .",
+    "lint": "npm run lint:ts && npm run lint:prettier",
+    "lintfix": "prettier --write --list-different . && npm run lint:ts --fix",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "prepare": "cd .. && husky install frontend-nuxt/.husky"
   },
   "devDependencies": {
+    "@nuxtjs/apollo": "^5.0.0-alpha.9",
+    "@nuxtjs/eslint-config-typescript": "^12.1.0",
     "@nuxtjs/tailwindcss": "^6.10.1",
     "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@typescript-eslint/parser": "^6.14.0",
+    "eslint": "^8.55.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-airbnb-typescript": "^17.1.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.0.1",
     "ferdi": "^0.0.21",
+    "husky": "^8.0.3",
     "nuxt": "^3.8.2",
-    "vite-svg-loader": "^4.0.0"
+    "prettier": "^3.1.1",
+    "typescript": "^5.3.3"
   },
   "dependencies": {
     "@nuxtjs/robots": "^3.0.0",
-    "nuxt-graphql-client": "^0.2.31"
+    "@vue/apollo-composable": "^4.0.0-beta.11",
+    "graphql-tag": "^2.12.6",
+    "tslib": "^2.5.1",
+    "vite-plugin-mkcert": "^1.17.1",
+    "vite-svg-loader": "^4.0.0"
   }
 }

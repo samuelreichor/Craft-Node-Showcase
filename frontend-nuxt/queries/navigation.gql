@@ -1,10 +1,10 @@
 query navigation {
-   navigationNodes (navHandle: "mainNavigation", level: 1) {
+  navigationNodes(navHandle: "mainNavigation", level: 1) {
     title
-        url
-        children {
-            title
-            url
-        }
+    url
+    children {
+      title
+      url
+    }
   }
 }

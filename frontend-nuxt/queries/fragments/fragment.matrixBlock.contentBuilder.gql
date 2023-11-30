@@ -1,0 +1,34 @@
+#import "./fragment.image.gql"
+
+fragment ContentBuilder on contentBuilderMatrixWebsite_MatrixField {
+  # Text Section
+  ... on contentBuilder_richText_BlockType {
+    type: typeHandle
+    sectionTitle
+    backgroundColor
+    richText
+  }
+
+  # Image Section
+  ... on contentBuilder_image_BlockType {
+    type: typeHandle
+    sectionTitle
+    backgroundColor
+    image {
+      ...Image
+    }
+  }
+
+  # Image And Text Section
+  ... on contentBuilder_imageAndText_BlockType {
+    type: typeHandle
+    sectionTitle
+    backgroundColor
+    switched
+    centered
+    text
+    image {
+      ...Image
+    }
+  }
+}

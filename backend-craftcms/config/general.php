@@ -14,6 +14,10 @@ return [
       '@web' => getenv('PRIMARY_SITE_URL'),
       '@websiteUrl' => getenv('WEBSITE_URL'),
     ],
+    'headlessMode' => true,
+    'allowedGraphqlOrigins' => [
+        'http://localhost:3000',
+    ],
     'allowAdminChanges' => false,
     'allowedFileExtensions' => ['jpg', 'png', 'jpeg', 'gif', 'svg', 'mp4', 'pdf', 'zip', 'csv'],
     'allowUpdates' => false,

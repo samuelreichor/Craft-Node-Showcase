@@ -22,7 +22,7 @@ if [[ "${STAGED_APP_FILES}" != "" ]]; then
     if [ "${NODE_VERSION}" -ge "14" ]; then
 
         printf "Running Linting\n\n"
-        npm run lint
+        cd ./frontend-nuxt && npm run lint
         checkResult "Linting-Type-Check"
 
     fi

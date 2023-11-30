@@ -4,7 +4,6 @@
  |--------------------------------------------------------------------------
  */
 
-
 module.exports = {
-    sans: ['Outfit', 'sans-serif'],
+  sans: ['Outfit', 'sans-serif'],
 };

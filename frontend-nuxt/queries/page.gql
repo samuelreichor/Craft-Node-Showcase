@@ -1,12 +1,12 @@
-query pages ($slug: [String]!) {
-   entry: entry(section: "pages", slug: $slug) {
+query pages($slug: [String]!) {
+  entry: entry(section: "pages", slug: $slug) {
     title
     ... on pages_default_Entry {
       id
       title
       heroHeadline
       heroImage {
-         url @imagerTransform (width: 300, height: 300, mode: "crop", format: "jpg")
+        url @imagerTransform(width: 300, height: 300, mode: "crop", format: "jpg")
       }
     }
   }
