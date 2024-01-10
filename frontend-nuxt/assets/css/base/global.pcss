@@ -1,11 +1,25 @@
+/*
+ |--------------------------------------------------------------------------
+ |  Global Styling
+ |--------------------------------------------------------------------------
+ */
 @layer base {
-  body {
-    @apply text-base;
-    font-family: theme('fontFamily.sans');
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: subpixel-antialiased;
+  html {
     scroll-behavior: smooth;
+  }
+
+  body {
+    min-height: 100vh;
+    width: 100%;
+    max-width: 100%;
+    font-size: theme('fontSize.base');
+    text-rendering: optimizeLegibility;
+    font-smoothing: antialiased;
+    -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-overflow-scrolling: touch;
+
     @media screen {
       font-feature-settings:
         'dlig' 0,
@@ -15,56 +29,29 @@
     }
   }
 
-  img {
-    width: 100%;
-  }
-
-  p,
-  span {
-    line-height: 1.3;
-  }
-
-  *::selection {
-    background: theme('colors.primary.DEFAULT');
-    color: theme('colors.black');
-  }
-
-  *::-moz-selection {
-    background: theme('colors.primary.DEFAULT');
-    color: theme('colors.black');
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  blockquote {
+    text-wrap: balance;
   }
 
   .container {
-    position: relative;
-    width: 100%;
-    display: grid;
-    margin: 0 auto;
-    max-width: 108.7rem !important; /* 1740px */
-    padding: 0 theme('spacing.5');
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-
-    @media screen(md) {
-      grid-template-columns: repeat(12, minmax(0, 1fr));
-    }
-
-    @media screen(lg) {
-      padding: 0 theme('spacing.24');
-    }
-
-    @media screen(xl) {
-      padding: 0 theme('spacing.32');
-    }
+    @apply grid grid-cols-12 px-4 md:px-16 !max-w-full relative;
   }
 
-  .inside-container {
-    position: relative;
-    width: 100%;
-    display: grid;
-    margin: 0 auto;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .m-top-md {
+    @apply mt-8 md:mt-14;
+  }
 
-    @media screen(md) {
-      grid-template-columns: repeat(12, minmax(0, 1fr));
-    }
+  .m-top-default {
+    @apply mt-10 md:mt-20;
+  }
+
+  .m-top-lg {
+    @apply mt-16 md:mt-28;
   }
 }

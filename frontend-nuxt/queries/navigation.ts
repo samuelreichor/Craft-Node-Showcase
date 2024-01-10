@@ -1,3 +1,4 @@
+const navigationQuery = `
 query navigation {
   navigationNodes(navHandle: "mainNavigation", level: 1) {
     title
@@ -8,3 +9,6 @@ query navigation {
     }
   }
 }
+`;
+
+export default navigationQuery;

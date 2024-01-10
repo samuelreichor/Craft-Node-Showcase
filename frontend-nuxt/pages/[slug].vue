@@ -1,23 +1,26 @@
 <template>
   <div class="flex gap-10">
-    <!--     <h1 class="w-1/2">{{data.entry.heroHeadline}}</h1>
-    <img class="w-1/2" :src="imgUrl(data.entry.heroImage[0].url)"> -->
-    Page
+    <div v-if="data && data.entries[0]">
+      <h1>{{ data.entries[0].title }}</h1>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-/*   const route = useRoute()
+  import pageQuery from '../queries/page';
 
-  const { data } = await useAsyncGql({
-    operation: 'pages',
-    variables: { 
-      slug: route.params.slug, 
+  const data = ref(null);
+  const { slug } = useRoute().params;
+
+  const variables = {
+    slug,
+  };
+
+  onMounted(async () => {
+    try {
+      data.value = await graphQlHelper(pageQuery, variables);
+    } catch (error) {
+      throw new Error(error);
     }
   });
-  
-  const imgUrl = ($url: string) => {
-    const beUrl = "https://template-headless.ddev.site"
-    return beUrl + $url
-  } */
 </script>

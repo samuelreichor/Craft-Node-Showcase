@@ -1,6 +1,10 @@
-const getData = async (query, variables, token) => {
+const getData = async (query, variables) => {
+  const route = useRoute();
+  const { token } = route.query;
+
   if (token) {
-    const { data, error, refresh } = await useFetch('https://template-headless.ddev.site/gql', {
+    const endpointUrl = useRuntimeConfig().public.gqlEndpoint;
+    const { data, error, refresh } = await useFetch(endpointUrl, {
       params: { query, token },
     });
     await refresh();
@@ -11,12 +15,11 @@ const getData = async (query, variables, token) => {
     return data.value.data;
   }
 
-  const { onResult, onError, loading } = useQuery(
-    gql`
-      ${query}
-    `,
-    variables || {}
-  );
+  const queryCode = gql`
+    ${query}
+  `;
+
+  const { onResult, onError, loading } = useQuery(queryCode, variables);
 
   return new Promise((resolve, reject) => {
     onResult((resultData) => {
@@ -32,5 +35,3 @@ const getData = async (query, variables, token) => {
 };
 
 export default getData;
-
-/* Test */

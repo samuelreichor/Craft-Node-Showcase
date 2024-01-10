@@ -1,8 +1,9 @@
 {
   "private": true,
   "scripts": {
-    "build": "nuxt build",
+    "build-types": "export BACKEND_URL='https://template-headless.ddev.site' && NODE_TLS_REJECT_UNAUTHORIZED=0 node ./queries/configs/schemaQuery.ts",
     "build:dev": "nuxt build && NODE_TLS_REJECT_UNAUTHORIZED=0 node .output/server/index.mjs",
+    "build": "npm run build-types && nuxt build",
     "dev": "nuxt dev",
     "lint:ts": "eslint --ext \".ts,.vue\" --ignore-path .gitignore .",
     "lint:prettier": "prettier --check .",
@@ -17,7 +18,6 @@
     "@nuxtjs/apollo": "^5.0.0-alpha.9",
     "@nuxtjs/eslint-config-typescript": "^12.1.0",
     "@nuxtjs/tailwindcss": "^6.10.1",
-    "@tailwindcss/aspect-ratio": "^0.4.2",
     "@typescript-eslint/parser": "^6.14.0",
     "eslint": "^8.55.0",
     "eslint-config-airbnb-base": "^15.0.0",
@@ -31,9 +31,8 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
-    "@nuxtjs/robots": "^3.0.0",
-    "@vue/apollo-composable": "^4.0.0-beta.11",
-    "graphql-tag": "^2.12.6",
+    "cross-fetch": "^4.0.0",
+    "tailwind-merge": "^2.2.1",
     "tslib": "^2.5.1",
     "vite-plugin-mkcert": "^1.17.1",
     "vite-svg-loader": "^4.0.0"

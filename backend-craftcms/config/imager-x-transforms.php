@@ -28,6 +28,7 @@ return [
         ],
         'defaults' => [
             'ratio' => 3/2,
+            'format' => 'webp'
         ],
     ],
     'portrait' => [

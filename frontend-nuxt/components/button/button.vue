@@ -1,50 +1,71 @@
 <template>
-  <a v-if="btnText" :class="buttonClasses" :href="btnLink" :target="computedTarget">
-    {{ btnText }}
+  <a
+    v-if="props.button"
+    :class="[
+      compDefaults.name,
+      twMerge(compDefaults.classes.root, selectedVariant, props.customClasses),
+    ]"
+    :href="btnData.btnLink"
+    :target="btnData.btnTarget"
+  >
+    {{ btnData.btnText }}
   </a>
 </template>
 
-<script>
-export default {
-  components: {},
-  props: {
-    btnText: {
+<script setup lang="ts">
+  import { twMerge } from 'tailwind-merge';
+
+  const props = defineProps({
+    customClasses: {
       type: String,
       default: () => '',
     },
-    btnLink: {
-      type: String,
-      default: () => '',
+    button: {
+      required: true,
+      type: Object,
+      default: () => {},
     },
     variant: {
       type: String,
       default: () => 'primary',
     },
-    btnTarget: {
-      type: Boolean,
-      default: () => true,
+  });
+
+  const compDefaults = {
+    name: 'c-button',
+    classes: {
+      root: 'transition-all duration-200 cursor-pointer inline-block !leading-none tracking-wide relative no-underline',
     },
-  },
-  computed: {
-    buttonClasses() {
-      const variants = [
-        {
-          name: 'primary',
-          class:
-            'c-button-primary font-medium border-2 transition-all duration-200 border-primary hover:bg-transparent hover:text-black bg-primary rounded-full text-white pb-3 pt-2.5 px-6 cursor-pointer inline-block !leading-none tracking-wide relative no-underline',
-        },
-        {
-          name: 'secondary',
-          class:
-            'c-button-secondary border-2 transition-all duration-200 border-primary bg-transparent text-black hover:bg-primary rounded-full hover:text-white pb-3 pt-2.5 px-6 cursor-pointer inline-block  !leading-none tracking-wide relative no-underline',
-        },
-      ];
-      const selectedVariant = variants.find((v) => v.name === this.variant);
-      return selectedVariant ? selectedVariant.class : '';
+  };
+
+  const variants = [
+    {
+      name: 'primary',
+      class:
+        'c-button-primary border-2 border-primary hover:bg-transparent hover:text-black bg-primary text-white pb-3 pt-2.5 px-6',
     },
-    computedTarget() {
-      return this.btnTarget ? '_blank' : '';
+    {
+      name: 'secondary',
+      class:
+        'c-button-secondary border-2 border-primary bg-transparent text-black hover:bg-primary hover:text-white pb-3 pt-2.5 px-6 ',
     },
-  },
-};
+    {
+      name: 'link',
+      class: 'c-button-link underline underline-offset-2 hover:text-primary',
+    },
+  ];
+
+  const selectedVariant = computed(() => {
+    const variant = variants.find((v) => v.name === props.variant);
+    if (variant) {
+      return variant.class;
+    }
+    return '';
+  });
+
+  const btnData = computed(() => ({
+    btnText: props.button.text,
+    btnLink: props.button.url,
+    btnTarget: props.button.target || '_self',
+  }));
 </script>

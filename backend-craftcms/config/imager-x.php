@@ -20,7 +20,7 @@ return [
         'mockImage' => getenv('MOCK_IMAGE') ?: null,
 
         'imagerSystemPath' => '@webroot/assets/imager/',
-        'imagerUrl' => '/assets/imager/',
+        'imagerUrl' => '@web/assets/imager/',
 
         'optimizers' => [
             'jpegoptim',

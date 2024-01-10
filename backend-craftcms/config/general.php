@@ -14,7 +14,6 @@ return [
       '@web' => getenv('PRIMARY_SITE_URL'),
       '@websiteUrl' => getenv('WEBSITE_URL'),
     ],
-    'headlessMode' => true,
     'allowedGraphqlOrigins' => [
         'http://localhost:3000',
     ],

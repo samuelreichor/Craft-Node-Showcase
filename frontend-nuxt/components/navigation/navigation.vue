@@ -1,25 +1,38 @@
 <template>
-  <!--     <ul class="flex gap-5" v-if="data">
-        <li v-if="data.navigationNodes" v-for="node in data.navigationNodes">
-            <NuxtLink :to="node.url" class="">
-                {{ node.title }}
-                <ul v-if="node.children">
-                    <li v-for="child in node.children" class="">
-                        <NuxtLink :to="child.url" >
-                            {{ child.title }}
-                        </NuxtLink>
-                    </li>
-                </ul>
-            </NuxtLink>
-        </li>
-    </ul> -->
-  navigationNodes
+  <div v-if="props.nodes" :class="[data.name, data.classes.root]">
+    <ul class="flex gap-5">
+      <li v-for="(node, indexNode) in props.nodes" :key="'node-' + indexNode">
+        <NuxtLink :to="node.url" class="">
+          {{ node.title }}
+          <ul v-if="node.children">
+            <li
+              v-for="(child, indexChild) in node.children"
+              :key="'child-' + indexNode + '-' + indexChild"
+            >
+              <NuxtLink :key="indexChild" :to="child.url">
+                {{ child.title }}
+              </NuxtLink>
+            </li>
+          </ul>
+        </NuxtLink>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script setup lang="ts">
-/*     const { data } = await useAsyncGql({
-        operation: 'navigation',
-    }); */
-</script>
+  const props = defineProps({
+    nodes: {
+      required: true,
+      type: Array,
+      default: () => [],
+    },
+  });
 
-NODE_TLS_REJECT_UNAUTHORIZED=0 node .output/server/index.mjs
+  const data = {
+    name: 'c-navigation',
+    classes: {
+      root: 'bg-black text-white p-2',
+    },
+  };
+</script>

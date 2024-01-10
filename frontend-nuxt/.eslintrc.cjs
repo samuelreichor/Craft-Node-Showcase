@@ -8,8 +8,9 @@ module.exports = {
     sourceType: 'module',
     extraFileExtensions: ['.vue'],
   },
-  ignorePatterns: ['**/ferdi/*'],
+  ignorePatterns: ['**/ferdi/*', 'schemaQuery.ts'],
   rules: {
+    'no-underscore-dangle': ['error', { allow: ['__typename'] }],
     'no-undef': 'off',
     quotes: [1, 'single'],
     semi: [1, 'always'],
