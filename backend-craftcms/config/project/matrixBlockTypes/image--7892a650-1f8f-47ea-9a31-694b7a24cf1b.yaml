@@ -74,4 +74,4 @@ fields:
     type: craft\fields\Assets
 handle: image
 name: Image
-sortOrder: 2
+sortOrder: 3

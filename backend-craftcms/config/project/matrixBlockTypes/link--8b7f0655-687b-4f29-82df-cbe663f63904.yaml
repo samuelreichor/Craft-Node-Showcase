@@ -67,7 +67,7 @@ fields:
         custom:
           allowAliases: false
           disableValidation: false
-          enabled: true
+          enabled: false
         email:
           allowAliases: false
           disableValidation: false

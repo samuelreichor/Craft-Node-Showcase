@@ -1,0 +1,19 @@
+columnSuffix: nykmihis
+contentColumnType: text
+fieldGroup: 46d06d25-fab0-40a8-a54b-aa3f746401d6 # Text Fields
+handle: richtext
+instructions: null
+name: Richtext
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: false
+  columnType: null
+  initialRows: 4
+  multiline: false
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

@@ -16,7 +16,7 @@ fieldLayouts:
             uid: 33b29778-7b32-47a4-bd85-f499de65600d
             userCondition: null
             warning: null
-            width: 25
+            width: 50
           -
             elementCondition: null
             fieldUid: 7662cd3a-0217-4164-bff5-a804bce29648 # Switched
@@ -28,7 +28,31 @@ fieldLayouts:
             uid: 432f89cd-a3b3-4c31-97b6-81930e475aca
             userCondition: null
             warning: null
-            width: 25
+            width: 50
+          -
+            elementCondition: null
+            fieldUid: 856ebddd-2bfd-4588-805d-491a9d0f6244 # Headline
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: d11ebb45-b09c-4874-b5c8-bf5b0e217579
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            elementCondition: null
+            fieldUid: 1411d74e-f3d5-4167-8d0d-5184b20d6354 # Headline Variant
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 64679236-4311-4e9a-891b-5b7de6d5c9f5
+            userCondition: null
+            warning: null
+            width: 50
           -
             elementCondition: null
             fieldUid: 3646d014-05d7-44d6-ac01-1930aade6203 # Text
@@ -69,6 +93,95 @@ fieldLayouts:
         uid: 1fe82196-af93-43b9-8b7b-b5b7d67e7203
         userCondition: null
 fields:
+  856ebddd-2bfd-4588-805d-491a9d0f6244: # Headline
+    columnSuffix: bwdvodvq
+    contentColumnType: text
+    fieldGroup: null
+    handle: headline
+    instructions: null
+    name: Headline
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: false
+      columnType: null
+      initialRows: 4
+      multiline: false
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  1411d74e-f3d5-4167-8d0d-5184b20d6354: # Headline Variant
+    columnSuffix: faunaauy
+    contentColumnType: string(2)
+    fieldGroup: null
+    handle: headlineVariant
+    instructions: null
+    name: 'Headline Variant'
+    searchable: false
+    settings:
+      columnType: null
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - H2
+            -
+              - value
+              - h2
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - H3
+            -
+              - value
+              - h3
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - H4
+            -
+              - value
+              - h4
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - H5
+            -
+              - value
+              - h5
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - H6
+            -
+              - value
+              - h6
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
   3646d014-05d7-44d6-ac01-1930aade6203: # Text
     columnSuffix: null
     contentColumnType: text
@@ -275,4 +388,4 @@ fields:
     type: lenz\linkfield\fields\LinkField
 handle: imageAndText
 name: 'Image and Text'
-sortOrder: 3
+sortOrder: 5

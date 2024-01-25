@@ -1,4 +1,4 @@
-dateModified: 1704885009
+dateModified: 1706175020
 email:
   fromEmail: admin@fredmansky.at
   fromName: $SITE_NAME
@@ -42,12 +42,15 @@ meta:
     1a680df0-fe66-4d73-b7f9-c9eda8c96f05: Size # Size
     1e51ec97-9959-4860-8d78-a37833c6a526: Common # Common
     2c9430af-5272-4806-a33f-9364d065ac83: Default # Default
+    2de64784-198c-4cc5-9554-27e77ffe5c59: 'Plain Text' # Plain Text
     3ab0bfb1-c5e0-447f-9f41-2fcc08d15e94: Form # Form
     3bd74465-5f86-4a4e-8e11-284e7c2e92eb: Image # Image
     4ba32469-66ba-4233-8faf-e5f819134881: Headline # Headline
     4fd5d92e-484c-47a3-b63b-5443cb2736db: Content # Content
     5b4128b6-7a56-4620-a5a3-fa59c4f90211: 'Contact Form' # Contact Form
+    5cad05af-3356-4a08-bf5b-c609cdce60a7: Headline # Headline
     5cce6b80-a35c-4207-82e0-3940c9091376: Images # Images
+    7c80e32f-a4d2-4709-80ce-7bc8842694bb: 'Plain Text' # Plain Text
     8a2c7f95-44e5-429d-bac0-150ce7db3824: Text # Text
     8b7f0655-687b-4f29-82df-cbe663f63904: Link # Link
     9b8f35b7-0309-476b-9ca6-654d6d620e69: 'Public Schema' # Public Schema
@@ -55,14 +58,24 @@ meta:
     9eb431c5-7fe6-4c45-be5d-6c94ade7993e: Assets # Assets
     23fbe8f3-d0a4-499e-9bdf-1d2dc5a999f5: Image # Image
     25d4c40f-03b6-4c00-bda2-7849d4d80197: 'Link Information' # Link Information
+    28f903a0-fcfc-405d-b3ad-36bad6f528cb: 'Related Entries' # Related Entries
+    46d06d25-fab0-40a8-a54b-aa3f746401d6: 'Text Fields' # Text Fields
     78eb4c24-9ee0-4fe1-85b6-902352ffc6af: Code # Code
+    92de5a3c-5ac7-4626-999e-5aec9aecfee5: Richtext # Richtext
+    94d2a39a-d6b0-46e7-bad6-e1023c6893e5: 'Headline Variant' # Headline Variant
+    97e15e51-f73d-442b-b9bd-329c668a40a3: Richtext # Richtext
     114adcdf-ab31-4d8f-8fb5-add7702e476a: Icon # Icon
+    0516bb68-ea97-4bc7-9935-6cd394250e60: 'Plain Text' # Plain Text
     683a4e58-0d04-4452-9b24-4f228753d538: Text # Text
     695fdc9b-7cb6-4172-ad4a-2194854c587e: Text # Text
     709d1f4c-cde7-4279-b196-7dbd0d3c1d4a: HeroSection # HeroSection
+    856ebddd-2bfd-4588-805d-491a9d0f6244: Headline # Headline
+    1411d74e-f3d5-4167-8d0d-5184b20d6354: 'Headline Variant' # Headline Variant
     1854f3be-cac9-430d-bde8-9093b969668c: Errors # Errors
+    3329f87e-3071-4db1-b35b-83cb0f7cc74c: Headline # Headline
     3646d014-05d7-44d6-ac01-1930aade6203: Text # Text
     4029eccd-d1d9-4076-81f9-58f315a363f2: Default # Default
+    5149f7a6-cc84-4beb-89d3-7d4003dc38a5: Modules # Modules
     5502ecc3-271c-47e8-99ff-d06fe1a603a2: Editors # Editors
     7662cd3a-0217-4164-bff5-a804bce29648: Switched # Switched
     7892a650-1f8f-47ea-9a31-694b7a24cf1b: Image # Image
@@ -74,6 +87,7 @@ meta:
     61520300-516c-4f2d-b7ec-b377b45ac195: New # New
     a4d10e62-ba56-47c3-bb40-ced4c8bd1f7d: 'Link Style' # Link Style
     a94c302a-1da9-4e98-96b1-36d23ce0235b: Pages # Pages
+    aa32d3f7-97c8-45c1-a226-ed8893cf1be1: 'Light Switch' # Light Switch
     b63d74dd-526d-4b25-a4e1-180d20f51923: Contact # Contact
     be62c9df-631a-4395-99fc-94e2eda37b7b: ContentBuilder # ContentBuilder
     bfd38180-5ad7-4644-a0a0-598e5dbed5fa: Image # Image
@@ -85,6 +99,7 @@ meta:
     d955bedd-4720-4536-84d6-fa27e730d27a: Default # Default
     e3bbc91c-6b7f-4699-aa15-8c102ee467b2: 'Link Information' # Link Information
     e4838186-e61d-4455-ae88-4e0b9abe8711: Users # Users
+    ed71b706-f9c9-449a-b28e-b2d84259c81c: Richtext # Richtext
     f8880613-ce1c-42ee-adaa-3a49591c464f: Logos # Logos
     fd83b0ff-09c2-4451-9f86-4c846bf92557: 'Main Navigation' # Main Navigation
 plugins:
