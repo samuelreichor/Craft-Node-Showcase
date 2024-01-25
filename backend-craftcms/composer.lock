@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "715078af22199ca25287b870ed8ee5a5",
+    "content-hash": "c854791903ed44c08bb6384a8ba63e19",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -660,11 +660,11 @@
         },
         {
             "name": "craftcms/cms",
-            "version": "4.5.11.1",
+            "version": "4.7.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/cms/zipball/99a8f9a688483d38bdb8cefbf39ad43a5e7b7b82",
-                "reference": "99a8f9a688483d38bdb8cefbf39ad43a5e7b7b82",
+                "url": "https://api.github.com/repos/craftcms/cms/zipball/17164e79c7b3e86534491ff7687129cc1db79386",
+                "reference": "17164e79c7b3e86534491ff7687129cc1db79386",
                 "shasum": ""
             },
             "require": {
@@ -752,7 +752,7 @@
                 "docs": "https://craftcms.com/docs/4.x/",
                 "rss": "https://github.com/craftcms/cms/releases.atom"
             },
-            "time": "2023-11-24T05:57:24+00:00"
+            "time": "2024-01-23T18:59:37+00:00"
         },
         {
             "name": "craftcms/html-field",
@@ -3213,11 +3213,11 @@
         },
         {
             "name": "nystudio107/craft-seomatic",
-            "version": "4.0.35",
+            "version": "4.0.38",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nystudio107/craft-seomatic/zipball/ab7cba5e3331ed130ca75ad1b02d75e753403db5",
-                "reference": "ab7cba5e3331ed130ca75ad1b02d75e753403db5",
+                "url": "https://api.github.com/repos/nystudio107/craft-seomatic/zipball/2508dd5c39016ad3d03b2593bc8865b14655dcdf",
+                "reference": "2508dd5c39016ad3d03b2593bc8865b14655dcdf",
                 "shasum": ""
             },
             "require": {
@@ -3269,7 +3269,7 @@
                 "issues": "https://nystudio107.com/plugins/seomatic/support",
                 "source": "https://github.com/nystudio107/craft-seomatic"
             },
-            "time": "2023-11-16T15:02:05+00:00"
+            "time": "2024-01-22T20:12:43+00:00"
         },
         {
             "name": "nystudio107/craft-templatecomments",
@@ -3388,66 +3388,6 @@
                 }
             ],
             "time": "2022-03-14T19:51:14+00:00"
-        },
-        {
-            "name": "nystudio107/craft-vite",
-            "version": "4.0.6",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/nystudio107/craft-vite.git",
-                "reference": "d20d2dbfd3b2d4ecd0380b3869185d54a9cf80a2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/nystudio107/craft-vite/zipball/d20d2dbfd3b2d4ecd0380b3869185d54a9cf80a2",
-                "reference": "d20d2dbfd3b2d4ecd0380b3869185d54a9cf80a2",
-                "shasum": ""
-            },
-            "require": {
-                "craftcms/cms": "^4.0.0",
-                "nystudio107/craft-plugin-vite": "^4.0.8"
-            },
-            "type": "craft-plugin",
-            "extra": {
-                "class": "nystudio107\\vite\\Vite",
-                "handle": "vite",
-                "name": "Vite"
-            },
-            "autoload": {
-                "psr-4": {
-                    "nystudio107\\vite\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "nystudio107",
-                    "homepage": "https://nystudio107.com"
-                }
-            ],
-            "description": "Allows the use of the Vite.js next generation frontend tooling with Craft CMS",
-            "keywords": [
-                "Craft",
-                "cms",
-                "craft-plugin",
-                "craftcms",
-                "vite"
-            ],
-            "support": {
-                "docs": "https://nystudio107.com/docs/vite/",
-                "issues": "https://nystudio107.com/plugins/vite/support",
-                "source": "https://github.com/nystudio107/craft-vite"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/khalwat",
-                    "type": "github"
-                }
-            ],
-            "time": "2023-06-07T17:25:10+00:00"
         },
         {
             "name": "paragonie/random_compat",
@@ -4888,11 +4828,11 @@
         },
         {
             "name": "spacecatninja/imager-x",
-            "version": "4.2.3",
+            "version": "4.2.4",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spacecatninja/craft-imager-x/zipball/922ce31d0442b7c4d53e197203df34a5e22e95c9",
-                "reference": "922ce31d0442b7c4d53e197203df34a5e22e95c9",
+                "url": "https://api.github.com/repos/spacecatninja/craft-imager-x/zipball/f564938d10a8da3240d5ac73a9e548e88ce8dba4",
+                "reference": "f564938d10a8da3240d5ac73a9e548e88ce8dba4",
                 "shasum": ""
             },
             "require": {
@@ -4949,7 +4889,7 @@
                 "docs": "http://imager-x.spacecat.ninja/",
                 "issues": "https://github.com/spacecatninja/craft-imager-x/issues"
             },
-            "time": "2023-09-22T13:35:04+00:00"
+            "time": "2024-01-10T09:29:50+00:00"
         },
         {
             "name": "ssnepenthe/color-utils",
@@ -6904,11 +6844,11 @@
         },
         {
             "name": "verbb/formie",
-            "version": "2.0.43",
+            "version": "2.1.3",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/verbb/formie/zipball/82d33aef88b0048d6f30268fbb02eccf81110ece",
-                "reference": "82d33aef88b0048d6f30268fbb02eccf81110ece",
+                "url": "https://api.github.com/repos/verbb/formie/zipball/e77b63ca491afb95d6e0c6f14a75a447796d6f4a",
+                "reference": "e77b63ca491afb95d6e0c6f14a75a447796d6f4a",
                 "shasum": ""
             },
             "require": {
@@ -6969,15 +6909,15 @@
                 "docs": "https://github.com/verbb/formie",
                 "rss": "https://github.com/verbb/formie/commits/v2.atom"
             },
-            "time": "2023-11-25T23:46:43+00:00"
+            "time": "2024-01-24T22:45:40+00:00"
         },
         {
             "name": "verbb/image-resizer",
-            "version": "3.0.8",
+            "version": "3.0.10",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/verbb/image-resizer/zipball/67471d302bcd79fc8d968acbe6bf055690388b96",
-                "reference": "67471d302bcd79fc8d968acbe6bf055690388b96",
+                "url": "https://api.github.com/repos/verbb/image-resizer/zipball/250ae563a4e104631a00b951a131be34bf447fa2",
+                "reference": "250ae563a4e104631a00b951a131be34bf447fa2",
                 "shasum": ""
             },
             "require": {
@@ -7024,15 +6964,15 @@
                 "docs": "https://github.com/verbb/image-resizer",
                 "rss": "https://github.com/verbb/image-resizer/commits/v2.atom"
             },
-            "time": "2023-10-09T22:20:31+00:00"
+            "time": "2024-01-23T12:31:37+00:00"
         },
         {
             "name": "verbb/navigation",
-            "version": "2.0.22",
+            "version": "2.0.24",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/verbb/navigation/zipball/9375bc90c74b005a86a16b7c34cacb6d446115d7",
-                "reference": "9375bc90c74b005a86a16b7c34cacb6d446115d7",
+                "url": "https://api.github.com/repos/verbb/navigation/zipball/d7c666ae8b9fb95bc0d4ea523c584af4c7a485cb",
+                "reference": "d7c666ae8b9fb95bc0d4ea523c584af4c7a485cb",
                 "shasum": ""
             },
             "require": {
@@ -7077,7 +7017,7 @@
                 "docs": "https://github.com/verbb/navigation",
                 "rss": "https://github.com/verbb/navigation/commits/v2.atom"
             },
-            "time": "2023-10-25T00:36:49+00:00"
+            "time": "2024-01-06T01:15:44+00:00"
         },
         {
             "name": "verbb/smith",
@@ -9046,5 +8986,5 @@
     "platform-overrides": {
         "php": "8.1"
     },
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }

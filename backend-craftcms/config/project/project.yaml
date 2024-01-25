@@ -1,4 +1,4 @@
-dateModified: 1706175020
+dateModified: 1706175541
 email:
   fromEmail: admin@fredmansky.at
   fromName: $SITE_NAME
@@ -135,7 +135,7 @@ plugins:
     edition: standard
     enabled: true
     licenseKey: $PLUGIN_FORMIE
-    schemaVersion: 2.0.11
+    schemaVersion: 2.0.13
   image-resizer:
     edition: standard
     enabled: true
