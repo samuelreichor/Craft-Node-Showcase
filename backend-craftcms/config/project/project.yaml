@@ -1,12 +1,33 @@
-dateModified: 1725050560
+dateModified: 1725052006
 email:
   fromEmail: samuelreichor@gmail.com
   fromName: Default
   transportType: craft\mail\transportadapters\Sendmail
+fs:
+  images:
+    hasUrls: true
+    name: Images
+    settings:
+      path: '@webroot/assets/images'
+    type: craft\fs\Local
+    url: '@web/assets/images/'
 meta:
   __names__:
+    1fb00b26-caa3-453a-a88f-cf3af93d99ab: Contentbuilder # Contentbuilder
+    2debff50-4cf6-4fad-b4d2-8c3b89af3f35: Cta # Cta
+    5a776f58-ff2b-470c-8725-cf8371fe83c3: Headline # Headline
+    5c9ccd7b-5bc6-4d52-865f-242e9ab64957: 'Image Text' # Image Text
+    79daebd0-0359-480d-9353-db1d3390552d: Home # Home
+    83bea185-c5b5-4e9d-bf5c-ae8eb69ba126: Image # Image
+    90d72bd5-ed0a-4fc4-b5f5-3ed67dac3372: 'Related Entry' # Related Entry
+    76084ba7-05a2-4e8b-af34-96b713efca1e: News # News
+    87655dce-f27c-4a4e-a317-b045a7021d63: 'Headline Tag' # Headline Tag
+    0411514a-5a41-4ca8-8863-3d076e5aa670: Home # Home
     49638297-5169-4a05-8a97-3cbc65f4d29a: Default # Default
+    e8b13026-7e14-481b-a8ca-dbd098c02b62: Text # Text
+    e38a46b6-d1cd-4891-832a-f74ee486ec01: Images # Images
     f1b75f00-f4ed-4958-8a70-45714133b929: Default # Default
+    ffaf40d1-d46f-48eb-b181-b73770a9e058: Cta # Cta
 plugins:
   element-api:
     edition: standard

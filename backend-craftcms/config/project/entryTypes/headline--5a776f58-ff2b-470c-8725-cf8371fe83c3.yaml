@@ -1,0 +1,67 @@
+color: null
+fieldLayouts:
+  1df36215-f136-4b34-8086-615561527e1f:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2024-08-30T20:56:13+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: Headline
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 4deab853-569a-466d-8c33-2ea24f951a3a
+            userCondition: null
+            warning: null
+            width: 75
+          -
+            dateAdded: '2024-08-30T20:58:24+00:00'
+            elementCondition: null
+            fieldUid: 87655dce-f27c-4a4e-a317-b045a7021d63 # Headline Tag
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a36c86a4-3023-4a2e-b944-5eabc8295c56
+            userCondition: null
+            warning: null
+            width: 25
+        name: Content
+        uid: 7d7df2c5-b32c-48ff-a061-4b3ad011a20a
+        userCondition: null
+handle: headline
+hasTitleField: true
+icon: ''
+name: Headline
+showSlugField: false
+showStatusField: false
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: ''
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

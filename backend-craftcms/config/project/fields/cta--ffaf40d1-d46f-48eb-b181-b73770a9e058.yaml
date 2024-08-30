@@ -1,0 +1,20 @@
+columnSuffix: null
+handle: cta
+instructions: null
+name: Cta
+searchable: false
+settings:
+  createButtonLabel: null
+  entryTypes:
+    - 2debff50-4cf6-4fad-b4d2-8c3b89af3f35 # Cta
+  includeTableView: false
+  maxEntries: null
+  minEntries: null
+  pageSize: null
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: blocks
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix
