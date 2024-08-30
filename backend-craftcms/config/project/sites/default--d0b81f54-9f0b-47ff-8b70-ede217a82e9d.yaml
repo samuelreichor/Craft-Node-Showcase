@@ -1,9 +1,0 @@
-baseUrl: $WEBSITE_URL
-enabled: true
-handle: default
-hasUrls: true
-language: de-DE
-name: Default
-primary: true
-siteGroup: 2c9430af-5272-4806-a33f-9364d065ac83 # Default
-sortOrder: 1
