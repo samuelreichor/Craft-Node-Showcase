@@ -1,4 +1,4 @@
-dateModified: 1725050338
+dateModified: 1725050560
 email:
   fromEmail: samuelreichor@gmail.com
   fromName: Default
@@ -7,6 +7,11 @@ meta:
   __names__:
     49638297-5169-4a05-8a97-3cbc65f4d29a: Default # Default
     f1b75f00-f4ed-4958-8a70-45714133b929: Default # Default
+plugins:
+  element-api:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
 system:
   edition: solo
   live: true
