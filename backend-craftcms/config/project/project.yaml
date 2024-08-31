@@ -1,4 +1,4 @@
-dateModified: 1725052006
+dateModified: 1725109864
 email:
   fromEmail: samuelreichor@gmail.com
   fromName: Default
@@ -29,6 +29,10 @@ meta:
     f1b75f00-f4ed-4958-8a70-45714133b929: Default # Default
     ffaf40d1-d46f-48eb-b181-b73770a9e058: Cta # Cta
 plugins:
+  cp-field-inspect:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
   element-api:
     edition: standard
     enabled: true
