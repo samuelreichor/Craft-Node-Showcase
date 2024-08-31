@@ -8,20 +8,67 @@
  * @see \craft\config\GeneralConfig
  */
 
-use craft\config\GeneralConfig;
-use craft\helpers\App;
+return [
+    '*' => [
+        'aliases' => [
+            '@web' => getenv('PRIMARY_SITE_URL'),
+        ],
+        'allowAdminChanges' => false,
+        'allowedFileExtensions' => ['jpg', 'png', 'jpeg', 'webp', 'gif', 'svg', 'mp4', 'pdf', 'zip', 'csv'],
+        'extraFileKinds' => [
+            'ics' => [
+                'label' => 'iCal / ICS',
+                'extensions' => ['ics'],
+            ],
+        ],
+        'extraAllowedFileExtensions' => ['ics'],
+        'maxUploadFileSize' => '50MB',
+        'allowUpdates' => false,
+        'cacheDuration' => 14400,
+        'defaultTokenDuration' => 'P2W',
+        'defaultSearchTermOptions' => [
+            'subLeft' => true,
+            'subRight' => true,
+        ],
+        'devMode' => true,
+        'disallowRobots' => true,
+        'errorTemplatePrefix' => '_pages/errors/',
+        'generateTransformsBeforePageLoad' => true,
+        'limitAutoSlugsToAscii' => true,
+        'maxRevisions' => 5,
+        'omitScriptNameInUrls' => true,
+        'runQueueAutomatically' => false,
+        'securityKey' => getenv('SECURITY_KEY'),
+        'pageTrigger' => '?page',
+        'pathParam' => null,
+    ],
 
-return GeneralConfig::create()
-    // Set the default week start day for date pickers (0 = Sunday, 1 = Monday, etc.)
-    ->defaultWeekStartDay(1)
-    // Prevent generated URLs from including "index.php"
-    ->omitScriptNameInUrls()
-    // Preload Single entries as Twig variables
-    ->preloadSingles()
-    // Prevent user enumeration attacks
-    ->preventUserEnumeration()
-    // Set the @webroot alias so the clear-caches command knows where to find CP resources
-    ->aliases([
-        '@webroot' => dirname(__DIR__) . '/web',
-    ])
-;
+    'production'  => [
+        'devMode' => false,
+        'disallowRobots' => false,
+        'disabledPlugins' => [
+            'blitz-recommendations',
+            'cp-field-inspect',
+            'dumper',
+            'elements-panel',
+            'templatecomments',
+            'twig-profiler',
+            'field-manager',
+        ],
+    ],
+
+    'staging'  => [
+        'testToEmailAddress' => getenv('TEST_EMAIL_ADDRESS') ?: null,
+    ],
+
+    'dev'  => [
+        'allowAdminChanges' => true,
+        'allowUpdates' => true,
+        'enableTemplateCaching' => false,
+        'testToEmailAddress' => getenv('TEST_EMAIL_ADDRESS') ?: null,
+        'disabledPlugins' => [
+            // 'seomatic', // for better performance measuring
+        ],
+        'runQueueAutomatically' => true,
+    ],
+];
