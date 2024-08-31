@@ -1,37 +1,80 @@
 <?php
 
 use craft\elements\Entry;
-use craft\helpers\UrlHelper;
 
 return [
-  'endpoints' => [
-    '/api/home' => function() {
-      return [
-        'elementType' => Entry::class,
-        'criteria' => ['section' => 'home'],
-        'one' => true,
-        'cache' => false,
-        'transformer' => function(Entry $entry) {
-          return [
-            'sectionHandle' => $entry->section->handle,
-            'id' => $entry->id,
-            'title' => $entry->title,
-            'url' => $entry->url,
-            'introText' => $entry->text,
-            'contentbuilder' => array_map(function($block) {
-              $fields = $block->getSerializedFieldValues();
-              return [
-                  'type' => $block->type->handle,
-                  'id' => $block->id,
-                  'fields' => $fields,
-              ];
-            }, $entry->contentbuilder->all()),
-            'cta' => [
-              'fields' => $entry->cta->one()->getSerializedFieldValues(),
-              ]
-          ];
+    'endpoints' => [
+        'v1/entry/<slug:{slug}>' => function($slug) {
+            return [
+                'elementType' => Entry::class,
+                'cache' => false,
+                'criteria' => [
+                  'slug' => $slug,
+                ],
+                'one' => true,
+                'transformer' => function(Entry $entry) {
+                    return [
+                        'title' => $entry->title,
+                        'text' => $entry->text,
+                        'contentbuilder' => transformMatrixBlocks($entry->contentbuilder),
+                    'cta' => transformMatrixBlocks($entry->cta),
+                    ];
+                },
+            ];
         },
-      ];
-    },
-  ]
+    ],
 ];
+
+function transformMatrixBlocks($matrixField)
+{
+    $blocksData = [];
+    foreach ($matrixField->all() as $block) {
+        $blockData = [
+            'type' => $block->type->handle,
+        ];
+
+        foreach ($block->getFieldValues() as $fieldHandle => $fieldValue) {
+            if ($fieldValue instanceof \craft\elements\db\AssetQuery) {
+                $blockData[$fieldHandle] = transformAssets($fieldValue->all());
+            } elseif ($fieldValue instanceof \craft\elements\db\EntryQuery) {
+                $blockData[$fieldHandle] = transformEntries($fieldValue->all());
+            } else {
+                $blockData[$fieldHandle] = $fieldValue;
+            }
+        }
+
+        $blocksData[] = $blockData;
+    }
+
+    return $blocksData;
+}
+
+function transformAssets($assets)
+{
+    $assetData = [];
+    foreach ($assets as $asset) {
+        $assetData[] = [
+            'title' => $asset->title,
+            'url' => $asset->getUrl(),
+            'filename' => $asset->filename,
+            'kind' => $asset->kind,
+            'size' => $asset->size,
+        ];
+    }
+
+    return $assetData;
+}
+
+function transformEntries($entries)
+{
+    $entryData = [];
+    foreach ($entries as $entry) {
+        $entryData[] = [
+            'title' => $entry->title,
+            'slug' => $entry->slug,
+            'url' => $entry->url,
+        ];
+    }
+
+    return $entryData;
+}
