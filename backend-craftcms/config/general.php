@@ -12,6 +12,10 @@ return [
     '*' => [
         'aliases' => [
             '@web' => getenv('PRIMARY_SITE_URL'),
+            '@websiteUrl' => getenv('WEBSITE_URL'),
+        ],
+        'allowedGraphqlOrigins' => [
+            'http://localhost:3000',
         ],
         'allowAdminChanges' => false,
         'allowedFileExtensions' => ['jpg', 'png', 'jpeg', 'webp', 'gif', 'svg', 'mp4', 'pdf', 'zip', 'csv'],
