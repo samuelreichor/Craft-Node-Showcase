@@ -1,24 +1,75 @@
-# NUXT 3 + Vite + Sanity + Tailwind
+# Nuxt 3 Minimal Starter
 
-This template should help get you started developing with NUXT 3 in Vite and Sanity.
+Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
-## Tailwind installed
+## Setup
 
-In the ./theme folder you can add custom styles.
-We are using Tailwind v3.2.4. (no purgcss required) with @tailwindcss/aspect-ratio v0.4.2 for no hacking around with image ratios
+Make sure to install the dependencies:
 
-## Keep your files consistant
+```bash
+# npm
+npm install
 
-Ferdi is a flexible component creation helper, it helps you to stay consistent in your component style and reduces the time required to create new components.
+# pnpm
+pnpm install
 
-To make a file in src/\_components/_/_.\*\*\* just type `ferdi <name of Component> --vue -c`
+# yarn
+yarn install
 
-For more Information checkout [Ferdi](https://github.com/martinherweg/ferdi).
+# bun
+bun install
+```
 
-## Svg loader component installed
+## Development Server
 
-You can use the component `<svg-loader name="name"/>` to import Svgs globally.
+Start the development server on `http://localhost:3000`:
 
-## Image component installed
+```bash
+# npm
+npm run dev
 
-Optimised images for NuxtJS, with progressive processing, lazy-loading, real-time resizes and providers support. [Docs are here](https://nuxt.com/modules/image)
+# pnpm
+pnpm run dev
+
+# yarn
+yarn dev
+
+# bun
+bun run dev
+```
+
+## Production
+
+Build the application for production:
+
+```bash
+# npm
+npm run build
+
+# pnpm
+pnpm run build
+
+# yarn
+yarn build
+
+# bun
+bun run build
+```
+
+Locally preview production build:
+
+```bash
+# npm
+npm run preview
+
+# pnpm
+pnpm run preview
+
+# yarn
+yarn preview
+
+# bun
+bun run preview
+```
+
+Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.

@@ -5,4 +5,5 @@ module.exports = {
   singleQuote: true,
   htmlWhitespaceSensitivity: 'ignore',
   proseWrap: 'preserve',
+  printWidth: 90,
 };
