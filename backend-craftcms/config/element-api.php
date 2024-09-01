@@ -6,6 +6,7 @@ return [
     'endpoints' => [
         'v1/entry/<slug:{slug}>' => function($slug) {
             return [
+                'contentType' => 'application/json',
                 'elementType' => Entry::class,
                 'cache' => false,
                 'criteria' => [
@@ -14,6 +15,7 @@ return [
                 'one' => true,
                 'transformer' => function(Entry $entry) {
                     return [
+                        'sectionHandle' => $entry->section->handle,
                         'title' => $entry->title,
                         'text' => $entry->text,
                         'contentbuilder' => transformMatrixBlocks($entry->contentbuilder),
