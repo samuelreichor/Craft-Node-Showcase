@@ -1,0 +1,4 @@
+{
+  "prettier.configPath": "./frontend-nuxt/.prettierrc.cjs",
+  "prettier.ignorePath": "./frontend-nuxt/.prettierignore"
+}
