@@ -27,6 +27,9 @@ return [
     ],
 ];
 
+  // TODO: Add new endpoint to get all pages
+
+  
 function transformMatrixBlocks($matrixField)
 {
     $blocksData = [];
@@ -80,3 +83,5 @@ function transformEntries($entries)
 
     return $entryData;
 }
+
+  // TODO: Make own plugin and add better transformer for all fields

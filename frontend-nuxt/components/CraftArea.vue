@@ -26,10 +26,6 @@
 
     return componentEl
   }
-
-
-  console.log(props.content)
-
 </script>
 
 <template>
