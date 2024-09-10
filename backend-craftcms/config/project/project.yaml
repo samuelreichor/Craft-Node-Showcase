@@ -1,4 +1,4 @@
-dateModified: 1725992424
+dateModified: 1725993757
 email:
   fromEmail: samuelreichor@gmail.com
   fromName: Default
@@ -30,6 +30,10 @@ meta:
     ffaf40d1-d46f-48eb-b181-b73770a9e058: Cta # Cta
 plugins:
   cp-field-inspect:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  craft-noder:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0

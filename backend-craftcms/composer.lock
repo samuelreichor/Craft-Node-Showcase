@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "06a50c7dd9bdb53b62b3e771e7adc161",
+    "content-hash": "b4f320e6fa21e080454b6a5721270228",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -3387,6 +3387,61 @@
                 }
             ],
             "time": "2023-11-23T14:11:29+00:00"
+        },
+        {
+            "name": "samuel-reichoer/craft-noder",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "plugins/craft-noder",
+                "reference": "bfe6deb5e632f76c3a61a9f4e6ca6c3dba853356"
+            },
+            "require": {
+                "craftcms/cms": "^5.0.0",
+                "php": ">=8.2"
+            },
+            "require-dev": {
+                "craftcms/ecs": "dev-main",
+                "craftcms/phpstan": "dev-main"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "handle": "craft-noder",
+                "name": "craft-noder",
+                "developer": "Samuel Reichör",
+                "documentationUrl": "https://github.com/samuelreichor/craft-noder",
+                "class": "samuelreichoer\\craftnoder\\Noder"
+            },
+            "autoload": {
+                "psr-4": {
+                    "samuelreichoer\\craftnoder\\": "src/"
+                }
+            },
+            "scripts": {
+                "check-cs": [
+                    "ecs check --ansi"
+                ],
+                "fix-cs": [
+                    "ecs check --ansi --fix"
+                ],
+                "phpstan": [
+                    "phpstan --memory-limit=1G"
+                ]
+            },
+            "license": [
+                "mit"
+            ],
+            "description": "A plugin that speeds up development in headless mode with js frameworks",
+            "support": {
+                "email": "samuelreichor@gmail.com",
+                "issues": "https://github.com/samuelreichor/craft-noder/issues?state=open",
+                "source": "https://github.com/samuelreichor/craft-noder",
+                "docs": "https://github.com/samuelreichor/craft-noder",
+                "rss": "https://github.com/samuelreichor/craft-noder/releases.atom"
+            },
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "seld/cli-prompt",
