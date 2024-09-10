@@ -1,8 +1,16 @@
 <script lang="ts" setup>
+  type Config = {
+    pages: {
+      [key: string]: Record<string, DefineComponent>,
+    },
+    components: {
+      [key: string]: Record<string, DefineComponent>,
+    }
+  }
 
   const props = defineProps({
     config: {
-      type: Object,
+      type: Object as PropType<Config>,
       required: true,
     },
     content: {

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+  import { CraftArea } from 'craft-vue-sdk';
   const props = defineProps({
     title: {
       type: String,

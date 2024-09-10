@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+
+ import { CraftPage } from 'craft-vue-sdk';
   import PageHome from '~/templates/pages/home.vue';
   import PageNews from '~/templates/pages/news.vue';
 
