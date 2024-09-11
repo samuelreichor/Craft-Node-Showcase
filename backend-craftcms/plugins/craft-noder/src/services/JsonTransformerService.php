@@ -2,23 +2,35 @@
 
 namespace samuelreichoer\craftnoder\services;
 
-use craft\elements\db\AssetQuery;
-use craft\elements\db\EntryQuery;
+use craft\elements\Asset;
 use craft\elements\Entry;
-use craft\fields\Matrix;
+use craft\errors\InvalidFieldException;
 
 class JsonTransformerService
 {
+  /**
+   * @throws InvalidFieldException
+   */
   public static function transformEntry(Entry $entry): array
   {
-    return [
+
+    $fieldLayout = $entry->getFieldLayout();
+    $fields = $fieldLayout ? $fieldLayout->getCustomFields() : [];
+
+    $transformedFields = [];
+
+    foreach ($fields as $field) {
+      $fieldHandle = $field->handle;
+      $fieldValue = $entry->getFieldValue($fieldHandle);
+      $fieldClass = get_class($field);
+      $transformedFields[$fieldHandle] = self::transformField($fieldValue, $fieldClass);
+    }
+
+    return array_merge([
         'metadata' => self::getMetadata($entry),
         'sectionHandle' => $entry->section->handle,
         'title' => $entry->title,
-        'text' => $entry->text,
-        'contentbuilder' => self::transformMatrixField($entry->contentbuilder),
-        'cta' => self::transformMatrixField($entry->cta),
-    ];
+    ], $transformedFields);
   }
 
   private static function getMetadata(Entry $entry): array
@@ -38,6 +50,23 @@ class JsonTransformerService
     ];
   }
 
+  private static function transformField($fieldValue, string $fieldClass)
+  {
+    switch ($fieldClass) {
+      case 'craft\fields\Assets':
+        return self::transformAssets($fieldValue->all());
+
+      case 'craft\fields\Matrix':
+        return self::transformMatrixField($fieldValue);
+
+      case 'craft\fields\Entries':
+        return self::transformEntries($fieldValue->all());
+
+      default:
+        return $fieldValue;
+    }
+  }
+
   private static function transformMatrixField($matrixField): array
   {
     $transformed = [];
@@ -48,7 +77,7 @@ class JsonTransformerService
       ];
 
       foreach ($block->getFieldValues() as $fieldHandle => $fieldValue) {
-        $blockData[$fieldHandle] = self::transformField($fieldValue);
+        $blockData[$fieldHandle] = self::transformField($fieldValue, get_class($block->getFieldLayout()->getFieldByHandle($fieldHandle)));
       }
 
       $transformed[] = $blockData;
@@ -57,44 +86,33 @@ class JsonTransformerService
     return $transformed;
   }
 
-  private static function transformField($fieldValue)
-  {
-    if (is_array($fieldValue)) {
-      return array_map([self::class, 'transformField'], $fieldValue);
-    } elseif ($fieldValue instanceof AssetQuery) {
-      return self::transformAssets($fieldValue->all());
-    } elseif ($fieldValue instanceof Matrix) {
-      return self::transformMatrixField($fieldValue);
-    } elseif ($fieldValue instanceof EntryQuery) {
-      return self::transformEntries($fieldValue->all());
-    }
-
-    return $fieldValue;
-  }
-
-  private static function transformAssets($assets)
+  private static function transformAssets(array $assets): array
   {
     $assetData = [];
+
     foreach ($assets as $asset) {
-      $assetData[] = [
-          'title' => $asset->title,
-          'url' => $asset->getUrl(),
-          'filename' => $asset->filename,
-          'kind' => $asset->kind,
-          'size' => $asset->size,
-      ];
+      if ($asset instanceof Asset) {
+        $assetData[] = [
+            'title' => $asset->title,
+            'url' => $asset->getUrl(),
+            'filename' => $asset->filename,
+            'kind' => $asset->kind,
+            'size' => $asset->size,
+        ];
+      }
     }
 
     return $assetData;
   }
 
-  private static function transformEntries($entries)
+  private static function transformEntries(array $entries): array
   {
     $entryData = [];
+
     foreach ($entries as $entry) {
       $entryData[] = [
           'title' => $entry->title,
-          'slug' => '/'.$entry->slug,
+          'slug' => '/' . $entry->slug,
           'url' => $entry->url,
       ];
     }
@@ -102,4 +120,3 @@ class JsonTransformerService
     return $entryData;
   }
 }
-

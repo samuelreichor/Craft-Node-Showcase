@@ -52,7 +52,7 @@ class Noder extends Plugin
     $logFileTarget = new FileTarget([
         'logFile' => '@storage/logs/noder.log',
         'maxLogFiles' => 10,
-        'categories' => ['Noder'],
+        'categories' => ['noder'],
         'logVars' => [],
     ]);
     Craft::getLogger()->dispatcher->targets[] = $logFileTarget;
