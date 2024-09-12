@@ -5,6 +5,9 @@ namespace samuelreichoer\craftnoder;
 use Craft;
 use craft\base\Plugin;
 use yii\log\FileTarget;
+use craft\events\RegisterUrlRulesEvent;
+use craft\web\UrlManager;
+use yii\base\Event;
 
 /**
  * craft-noder plugin
@@ -45,6 +48,14 @@ class Noder extends Plugin
   {
     // Register event handlers here ...
     // (see https://craftcms.com/docs/5.x/extend/events.html to get started)
+
+    Event::on(UrlManager::class, UrlManager::EVENT_REGISTER_SITE_URL_RULES,
+        function(RegisterUrlRulesEvent $event) {
+          $event->rules = array_merge($event->rules, [
+              'GET api/page/<siteId:\d+>/<slug>' => 'craft-noder/default/get-page',
+          ]);
+        }
+    );
   }
 
   private function initLogger(): void

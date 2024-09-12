@@ -5,15 +5,18 @@ namespace samuelreichoer\craftnoder\services;
 use craft\elements\Asset;
 use craft\elements\Entry;
 use craft\errors\InvalidFieldException;
+use yii\base\InvalidConfigException;
 
 class JsonTransformerService
 {
+
+  /* How can transformers be extensible */
   /**
    * @throws InvalidFieldException
    */
   public static function transformEntry(Entry $entry): array
   {
-
+    /* TODO: Add Caching */
     $fieldLayout = $entry->getFieldLayout();
     $fields = $fieldLayout ? $fieldLayout->getCustomFields() : [];
 
@@ -50,23 +53,31 @@ class JsonTransformerService
     ];
   }
 
-  private static function transformField($fieldValue, string $fieldClass)
+  /**
+   * @throws InvalidConfigException
+   */
+  private static function transformField($fieldValue, string $fieldClass): array|string
   {
-    switch ($fieldClass) {
-      case 'craft\fields\Assets':
-        return self::transformAssets($fieldValue->all());
+    /* TODO: Decide what custom fields should be available */
+    /* TODO: Add all possible field classes and transformer */
 
-      case 'craft\fields\Matrix':
-        return self::transformMatrixField($fieldValue);
-
-      case 'craft\fields\Entries':
-        return self::transformEntries($fieldValue->all());
-
-      default:
-        return $fieldValue;
-    }
+    /* Native Craft Fields: */
+    /* Addresses Fields */
+    /* Categories Fields */
+    /* Link Fields */
+    /* Tags Fields */
+    /* Users Fields */
+    return match ($fieldClass) {
+      'craft\fields\Assets' => self::transformAssets($fieldValue->all()),
+      'craft\fields\Matrix' => self::transformMatrixField($fieldValue),
+      'craft\fields\Entries' => self::transformEntries($fieldValue->all()),
+      default => $fieldValue,
+    };
   }
 
+  /**
+   * @throws InvalidConfigException
+   */
   private static function transformMatrixField($matrixField): array
   {
     $transformed = [];
@@ -77,7 +88,8 @@ class JsonTransformerService
       ];
 
       foreach ($block->getFieldValues() as $fieldHandle => $fieldValue) {
-        $blockData[$fieldHandle] = self::transformField($fieldValue, get_class($block->getFieldLayout()->getFieldByHandle($fieldHandle)));
+        $class = get_class($block->getFieldLayout()->getFieldByHandle($fieldHandle));
+        $blockData[$fieldHandle] = self::transformField($fieldValue, $class);
       }
 
       $transformed[] = $blockData;
@@ -86,10 +98,15 @@ class JsonTransformerService
     return $transformed;
   }
 
+  /**
+   * @throws InvalidConfigException
+   */
   private static function transformAssets(array $assets): array
   {
     $assetData = [];
 
+    /* TODO: Add logic for ImagerX and native Craft images and return it in a flexible format for transformations */
+    /* How does craft cms native image transforms work, how do i get different sizes etc. */
     foreach ($assets as $asset) {
       if ($asset instanceof Asset) {
         $assetData[] = [
@@ -109,6 +126,8 @@ class JsonTransformerService
   {
     $entryData = [];
 
+    /* How to define data that should be returned? */
+    /* Maybe through a setting in the cp? */
     foreach ($entries as $entry) {
       $entryData[] = [
           'title' => $entry->title,
