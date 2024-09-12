@@ -1,4 +1,4 @@
-dateModified: 1725993757
+dateModified: 1726163381
 email:
   fromEmail: samuelreichor@gmail.com
   fromName: Default
@@ -27,6 +27,7 @@ meta:
     e8b13026-7e14-481b-a8ca-dbd098c02b62: Text # Text
     e38a46b6-d1cd-4891-832a-f74ee486ec01: Images # Images
     f1b75f00-f4ed-4958-8a70-45714133b929: Default # Default
+    f5f37312-bb9f-4c8e-9263-85733999fdd2: Square # Square
     ffaf40d1-d46f-48eb-b181-b73770a9e058: Cta # Cta
 plugins:
   cp-field-inspect:

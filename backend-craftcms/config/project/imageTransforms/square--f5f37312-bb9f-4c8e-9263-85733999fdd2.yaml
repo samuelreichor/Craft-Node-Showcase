@@ -1,0 +1,11 @@
+fill: null
+format: webp
+handle: square
+height: 400
+interlace: none
+mode: crop
+name: Square
+position: center-center
+quality: null
+upscale: true
+width: 400
