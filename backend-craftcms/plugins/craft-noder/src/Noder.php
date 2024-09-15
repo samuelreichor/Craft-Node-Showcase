@@ -4,6 +4,9 @@ namespace samuelreichoer\craftnoder;
 
 use Craft;
 use craft\base\Plugin;
+use craft\events\RegisterCacheOptionsEvent;
+use craft\utilities\ClearCaches;
+use samuelreichoer\craftnoder\models\Settings;
 use yii\log\FileTarget;
 use craft\events\RegisterUrlRulesEvent;
 use craft\web\UrlManager;
@@ -21,39 +24,30 @@ class Noder extends Plugin
 {
   public string $schemaVersion = '1.0.0';
 
-  public static function config(): array
-  {
-    return [
-        'components' => [
-          // Define component configs here...
-        ],
-    ];
-  }
-
   public function init(): void
   {
     parent::init();
 
     $this->initLogger();
     $this->attachEventHandlers();
-
-    // Any code that creates an element query or loads Twig should be deferred until
-    // after Craft is fully initialized, to avoid conflicts with other plugins/modules
-    Craft::$app->onInit(function () {
-      // ...
-    });
   }
 
   private function attachEventHandlers(): void
   {
-    // Register event handlers here ...
-    // (see https://craftcms.com/docs/5.x/extend/events.html to get started)
+    Event::on(
+        UrlManager::class,
+        UrlManager::EVENT_REGISTER_SITE_URL_RULES,
+        [$this, 'registerUrlRules']
+    );
 
-    Event::on(UrlManager::class, UrlManager::EVENT_REGISTER_SITE_URL_RULES,
-        function(RegisterUrlRulesEvent $event) {
-          $event->rules = array_merge($event->rules, [
-              'GET api/page/<siteId:\d+>/<slug>' => 'craft-noder/default/get-page',
-          ]);
+    Event::on(
+        ClearCaches::class,
+        ClearCaches::EVENT_REGISTER_TAG_OPTIONS,
+        function(RegisterCacheOptionsEvent $event) {
+          $event->options[] = [
+              'tag' => 'craft-noder',
+              'label' => Craft::t('craft-noder', 'Noder responses'),
+          ];
         }
     );
   }
@@ -67,5 +61,25 @@ class Noder extends Plugin
         'logVars' => [],
     ]);
     Craft::getLogger()->dispatcher->targets[] = $logFileTarget;
+  }
+
+  protected function createSettingsModel(): ?Settings
+  {
+    return new Settings();
+  }
+
+  public function getEndpoint(string $pattern)
+  {
+    return $this->getSettings()->endpoints[$pattern] ?? null;
+  }
+
+  public function registerUrlRules(RegisterUrlRulesEvent $event): void
+  {
+    foreach ($this->getSettings()->endpoints as $pattern => $config) {
+      $event->rules[$pattern] = [
+          'route' => 'craft-noder',
+          'defaults' => ['pattern' => $pattern],
+      ];
+    }
   }
 }
