@@ -1,4 +1,4 @@
-dateModified: 1726163381
+dateModified: 1726422872
 email:
   fromEmail: samuelreichor@gmail.com
   fromName: Default
@@ -13,23 +13,44 @@ fs:
     url: '@web/assets/images/'
 meta:
   __names__:
+    0befc9a0-434e-4575-bccf-3fb3ee7db230: 'Categories Field' # Categories Field
+    1cd93979-2972-43fc-8416-fe5ad476f216: 'SEO Settingss' # SEO Settingss
     1fb00b26-caa3-453a-a88f-cf3af93d99ab: Contentbuilder # Contentbuilder
     2debff50-4cf6-4fad-b4d2-8c3b89af3f35: Cta # Cta
     5a776f58-ff2b-470c-8725-cf8371fe83c3: Headline # Headline
     5c9ccd7b-5bc6-4d52-865f-242e9ab64957: 'Image Text' # Image Text
+    7e655b93-2efb-47b9-b615-a5ed91e919f9: 'Link Text' # Link Text
+    041b7417-831f-419a-bd81-0607732805fa: 'News Teaser' # News Teaser
+    59fb6faa-0376-4921-878d-ebd1574897f2: Default # Default
+    72a38b3a-fd67-467e-920f-2cc12b24d7fb: Simple # Simple
     79daebd0-0359-480d-9353-db1d3390552d: Home # Home
+    83b3b6b5-bc6d-4347-9c24-308b77741ab1: Author # Author
     83bea185-c5b5-4e9d-bf5c-ae8eb69ba126: Image # Image
     90d72bd5-ed0a-4fc4-b5f5-3ed67dac3372: 'Related Entry' # Related Entry
+    73224fd0-62f0-4246-bc68-8512e2c9a5be: 'Open in New Tab' # Open in New Tab
     76084ba7-05a2-4e8b-af34-96b713efca1e: News # News
     87655dce-f27c-4a4e-a317-b045a7021d63: 'Headline Tag' # Headline Tag
     0411514a-5a41-4ca8-8863-3d076e5aa670: Home # Home
     49638297-5169-4a05-8a97-3cbc65f4d29a: Default # Default
+    c0ffe0d6-ee6f-45d7-9d5b-cc469270ff26: Richtext # Richtext
+    c5bed593-74ed-420d-b526-ac96195a0e55: 'News Tag' # News Tag
+    c6f999d6-4930-49f6-9bca-9426a6058f93: 'Link Field' # Link Field
+    cdf26765-b403-4449-8086-e526d5c50b2a: 'Address Field' # Address Field
+    d75e17fc-6378-4a30-9b59-14da2cd66fa0: 'News Filter' # News Filter
+    dda891de-1c3b-4002-8b43-3ee0c7d19fc5: 'Select Author' # Select Author
     e8b13026-7e14-481b-a8ca-dbd098c02b62: Text # Text
     e38a46b6-d1cd-4891-832a-f74ee486ec01: Images # Images
+    edb55a62-f7ff-4193-a422-7509b7abdacd: 'News Tag' # News Tag
+    f06526c5-45ef-4dcd-990e-715e1af34366: Link # Link
     f1b75f00-f4ed-4958-8a70-45714133b929: Default # Default
     f5f37312-bb9f-4c8e-9263-85733999fdd2: Square # Square
+    fe85f36f-032f-4a6c-9ddc-7e084934d41a: 'Public Schema' # Public Schema
     ffaf40d1-d46f-48eb-b181-b73770a9e058: Cta # Cta
 plugins:
+  ckeditor:
+    edition: standard
+    enabled: true
+    schemaVersion: 3.0.0.0
   cp-field-inspect:
     edition: standard
     enabled: true
@@ -42,16 +63,19 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
+  imager-x:
+    edition: lite
+    enabled: true
+    licenseKey: I414X0BWX2GT7GGF069ILWDA
+    schemaVersion: 4.0.0
+  seomatic:
+    edition: standard
+    enabled: true
+    licenseKey: 3NW9FZ9R0GG0HMVXPE8F9OHZ
+    schemaVersion: 3.0.12
 system:
-  edition: solo
+  edition: pro
   live: true
   name: Default
   schemaVersion: 5.3.0.2
   timeZone: America/Los_Angeles
-users:
-  allowPublicRegistration: false
-  defaultGroup: null
-  photoSubpath: null
-  photoVolumeUid: null
-  require2fa: false
-  requireEmailVerification: true

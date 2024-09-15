@@ -1,0 +1,82 @@
+defaultPlacement: end
+fieldLayouts:
+  2dc9b4e5-fe10-4063-ab18-4cd21d46fe22:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2024-09-15T11:41:33+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\TitleField
+            uid: 438f2f14-eb78-47a2-b5f1-23620a2fa1ba
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-09-15T14:05:20+00:00'
+            elementCondition: null
+            fieldUid: 90d72bd5-ed0a-4fc4-b5f5-3ed67dac3372 # Related Entry
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c4796ebc-e1ea-4d60-bb38-6e590f9cfa69
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-09-15T14:05:20+00:00'
+            elementCondition: null
+            fieldUid: dda891de-1c3b-4002-8b43-3ee0c7d19fc5 # Select Author
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 2b351b61-6f16-46a9-89c3-39d1fc2c06c6
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 9bf1de99-2f27-4182-8196-7c1a4232d2d1
+        userCondition: null
+handle: newsFilter
+name: 'News Filter'
+siteSettings:
+  f1b75f00-f4ed-4958-8a70-45714133b929: # Default
+    hasUrls: false
+    template: null
+    uriFormat: null
+structure:
+  maxLevels: 1
+  uid: f6440bc6-449d-46f6-8cff-ce549b39b3bb

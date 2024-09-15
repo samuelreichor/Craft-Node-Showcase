@@ -1,0 +1,43 @@
+columnSuffix: null
+handle: linkField
+instructions: null
+name: 'Link Field'
+searchable: false
+settings:
+  maxLength: 255
+  typeSettings:
+    __assoc__:
+      -
+        - asset
+        -
+          __assoc__:
+            -
+              - sources
+              - '*'
+            -
+              - allowedKinds
+              -
+                - image
+            -
+              - showUnpermittedVolumes
+              - ''
+            -
+              - showUnpermittedFiles
+              - ''
+      -
+        - entry
+        -
+          __assoc__:
+            -
+              - sources
+              - '*'
+  types:
+    - url
+    - asset
+    - category
+    - email
+    - entry
+    - tel
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Link

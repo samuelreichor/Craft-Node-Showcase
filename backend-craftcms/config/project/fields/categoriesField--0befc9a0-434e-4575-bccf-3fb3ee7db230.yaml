@@ -1,0 +1,21 @@
+columnSuffix: null
+handle: categoriesField
+instructions: null
+name: 'Categories Field'
+searchable: false
+settings:
+  allowSelfRelations: false
+  branchLimit: null
+  maintainHierarchy: false
+  maxRelations: null
+  minRelations: null
+  selectionLabel: null
+  showCardsInGrid: false
+  showSiteMenu: false
+  source: 'group:d75e17fc-6378-4a30-9b59-14da2cd66fa0' # News Filter
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: list
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Categories

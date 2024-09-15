@@ -1,6 +1,6 @@
 color: null
 fieldLayouts:
-  cdf226d3-60d1-4442-aacb-80d94cf0944a:
+  677c5c49-113d-404d-8cde-1a617e1c334c:
     tabs:
       -
         elementCondition: null
@@ -10,7 +10,7 @@ fieldLayouts:
             autocomplete: false
             autocorrect: true
             class: null
-            dateAdded: '2024-08-30T20:47:22+00:00'
+            dateAdded: '2024-09-15T11:44:54+00:00'
             disabled: false
             elementCondition: null
             id: null
@@ -31,30 +31,14 @@ fieldLayouts:
             tip: null
             title: null
             type: craft\fieldlayoutelements\entries\EntryTitleField
-            uid: 1b7c5fa8-9226-415d-8703-2618b4709ea5
+            uid: cec444f7-47d2-416d-8bab-c05e50415459
             userCondition: null
             warning: null
             width: 100
           -
-            dateAdded: '2024-08-30T21:03:06+00:00'
+            dateAdded: '2024-09-15T11:47:09+00:00'
             elementCondition: null
-            fieldUid: e8b13026-7e14-481b-a8ca-dbd098c02b62 # Text
-            handle: null
-            includeInCards: false
-            instructions: null
-            label: 'Intro Text'
-            providesThumbs: false
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: 695c925c-27d4-45a8-af36-6225f3c11c09
-            userCondition: null
-            warning: null
-            width: 100
-          -
-            dateAdded: '2024-09-15T14:24:59+00:00'
-            elementCondition: null
-            fieldUid: c0ffe0d6-ee6f-45d7-9d5b-cc469270ff26 # Richtext
+            fieldUid: dda891de-1c3b-4002-8b43-3ee0c7d19fc5 # Select Author
             handle: null
             includeInCards: false
             instructions: null
@@ -63,14 +47,14 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: b152d5b2-c85f-45be-87b2-1b7e12304238
+            uid: 5a864962-d805-4d96-9f89-2a613d745d36
             userCondition: null
             warning: null
             width: 100
           -
-            dateAdded: '2024-08-30T21:00:24+00:00'
+            dateAdded: '2024-09-15T11:47:09+00:00'
             elementCondition: null
-            fieldUid: 1fb00b26-caa3-453a-a88f-cf3af93d99ab # Contentbuilder
+            fieldUid: cdf26765-b403-4449-8086-e526d5c50b2a # Address Field
             handle: null
             includeInCards: false
             instructions: null
@@ -79,14 +63,14 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 891ea75e-729f-4ed4-a666-16b6b4e93d98
+            uid: 1037ce68-af37-427c-83c0-06dc79ed5b02
             userCondition: null
             warning: null
             width: 100
           -
-            dateAdded: '2024-08-30T21:03:06+00:00'
+            dateAdded: '2024-09-15T11:47:09+00:00'
             elementCondition: null
-            fieldUid: ffaf40d1-d46f-48eb-b181-b73770a9e058 # Cta
+            fieldUid: c6f999d6-4930-49f6-9bca-9426a6058f93 # Link Field
             handle: null
             includeInCards: false
             instructions: null
@@ -95,39 +79,17 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 3f512333-f50e-4248-b198-6d111d38de37
+            uid: 14acd690-c4a4-440c-aebd-c08c8b0a16d5
             userCondition: null
             warning: null
             width: 100
         name: Content
-        uid: 55465b4b-68cd-4012-990f-22ec6ce7026f
+        uid: 57122345-9970-4e7e-815a-0f9d3dff0905
         userCondition: null
-      -
-        elementCondition: null
-        elements:
-          -
-            dateAdded: '2024-09-15T16:20:21+00:00'
-            elementCondition: null
-            fieldUid: 1cd93979-2972-43fc-8416-fe5ad476f216 # SEO Settingss
-            handle: null
-            includeInCards: false
-            instructions: null
-            label: null
-            providesThumbs: false
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: da21df81-b6a5-46bf-99e2-825d9f4ef139
-            userCondition: null
-            warning: null
-            width: 100
-        name: 'Test Tab'
-        uid: dd4a003a-ecb9-46bd-ab8c-77d39cc5d0fb
-        userCondition: null
-handle: home
-hasTitleField: true
+handle: author
+hasTitleField: false
 icon: ''
-name: Home
+name: Author
 showSlugField: true
 showStatusField: true
 slugTranslationKeyFormat: null

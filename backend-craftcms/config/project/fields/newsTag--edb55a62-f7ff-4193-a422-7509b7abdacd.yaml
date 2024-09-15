@@ -1,0 +1,21 @@
+columnSuffix: null
+handle: newsTag
+instructions: null
+name: 'News Tag'
+searchable: false
+settings:
+  allowSelfRelations: false
+  branchLimit: null
+  maintainHierarchy: false
+  maxRelations: null
+  minRelations: null
+  selectionLabel: null
+  showCardsInGrid: false
+  showSiteMenu: false
+  source: 'taggroup:c5bed593-74ed-420d-b526-ac96195a0e55' # News Tag
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Tags

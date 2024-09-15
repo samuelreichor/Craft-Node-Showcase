@@ -1,0 +1,12 @@
+columnSuffix: null
+handle: addressField
+instructions: null
+name: 'Address Field'
+searchable: false
+settings:
+  maxAddresses: null
+  minAddresses: null
+  viewMode: cards
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Addresses
