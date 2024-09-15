@@ -164,15 +164,20 @@ class JsonTransformerService
     }
 
     $transformedData = [];
+    $imageMode = 'craft';
+
+    $imageTransformerService = new ImageTransformerService();
+
+    if (Utils::isPluginInstalledAndEnabled('imager-x')) {
+      $imageMode = 'imagerx';
+    }
 
     foreach ($assets as $asset) {
-      $transformedData[] = [
-          'title' => $asset->title,
-          'url' => $asset->getUrl(),
-          'filename' => $asset->filename,
-          'kind' => $asset->kind,
-          'size' => $asset->size,
-      ];
+      if ($imageMode === 'imagerx') {
+        $transformedData[] = $imageTransformerService->imagerXTransformer($asset);
+      } else {
+        $transformedData[] = $imageTransformerService->defaultImageTransformer($asset);
+      }
     }
 
     return $transformedData;
