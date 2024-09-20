@@ -19,7 +19,7 @@ class DefaultController extends Controller
    * @throws InvalidFieldException
    * @throws InvalidConfigException
    */
-  public function actionGetPage(int $siteId = 1, string $slug = 'home'): Response
+  public function actionGetEntry(int $siteId = 1, string $slug = 'home'): Response
   {
     $entry = Entry::find()
         ->siteId($siteId)

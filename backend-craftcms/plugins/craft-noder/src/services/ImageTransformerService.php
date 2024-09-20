@@ -28,9 +28,6 @@ class ImageTransformerService
   {
     return [
         'metaData' => $this->getMetaData($asset),
-        'title' => $asset->title,
-        'alt' => $asset->alt,
-        'caption' => $asset->caption ?? '',
         'height' => $asset->height,
         'width' => $asset->width,
         'focalPoint' => $asset->getFocalPoint(),

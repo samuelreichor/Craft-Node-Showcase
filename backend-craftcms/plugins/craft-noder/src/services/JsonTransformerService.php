@@ -2,7 +2,6 @@
 
 namespace samuelreichoer\craftnoder\services;
 
-use Craft;
 use craft\elements\Address;
 use craft\elements\Asset;
 use craft\elements\Category;
@@ -10,6 +9,8 @@ use craft\elements\Entry;
 use craft\elements\Tag;
 use craft\elements\User;
 use craft\errors\InvalidFieldException;
+use craft\fieldlayoutelements\users\PhotoField;
+use craft\fields\data\LinkData;
 use samuelreichoer\craftnoder\helpers\Utils;
 use yii\base\InvalidConfigException;
 
@@ -26,8 +27,6 @@ class JsonTransformerService
   {
     $transformedFields = $this->getTransformedFields($entry);
 
-    Craft::debug('Seomatic is installed: ' . Utils::isPluginInstalledAndEnabled('seomatic'), 'noder');
-
     return array_merge([
         'metadata' => $this->getMetadata($entry),
         'sectionHandle' => $entry->section->handle,
@@ -38,21 +37,39 @@ class JsonTransformerService
   /**
    * Retrieves and transforms custom fields from the context.
    *
-   * @param Entry|Category|User $context
+   * @param Entry|Category|User|Asset $context
    * @return array
    * @throws InvalidFieldException|InvalidConfigException
    */
-  private function getTransformedFields(Entry|Category|User $context): array
+  private function getTransformedFields(Entry|Category|User|Asset $context): array
   {
     $fieldLayout = $context->getFieldLayout();
     $fields = $fieldLayout ? $fieldLayout->getCustomFields() : [];
-
+    $nativeFields = $fieldLayout ? $fieldLayout->getAvailableNativeFields() : [];
     $transformedFields = [];
 
     $filteredOutClasses = [
         'nystudio107\seomatic\fields\SeoSettings',
     ];
 
+    // TODO: Add settings to add additional filter out classes
+
+    // Get native fields and there transformed values
+    if ($nativeFields) {
+      foreach ($nativeFields as $nativeField) {
+        $fieldHandle = $nativeField->attribute; //native fields have no handles
+        $fieldValue = $context->$fieldHandle;
+        $fieldClass = get_class($nativeField);
+
+        if (in_array($fieldClass, $filteredOutClasses, true)) {
+          continue;
+        }
+
+        $transformedFields[$fieldHandle] = $this->transformNativeField($fieldValue, $fieldClass);
+      }
+    }
+
+    // Get custom fields and there transformed values
     foreach ($fields as $field) {
       $fieldHandle = $field->handle;
       $fieldValue = $context->getFieldValue($fieldHandle);
@@ -62,7 +79,7 @@ class JsonTransformerService
         continue;
       }
 
-      $transformedFields[$fieldHandle] = $this->transformField($fieldValue, $fieldClass);
+      $transformedFields[$fieldHandle] = $this->transformCustomField($fieldValue, $fieldClass);
     }
 
     return $transformedFields;
@@ -70,14 +87,14 @@ class JsonTransformerService
 
 
   /**
-   * Transforms a field based on its class.
+   * Transforms a custom field based on its class.
    *
    * @param mixed $fieldValue
    * @param string $fieldClass
    * @return mixed
    * @throws InvalidFieldException|InvalidConfigException
    */
-  private function transformField($fieldValue, string $fieldClass)
+  private function transformCustomField(mixed $fieldValue, string $fieldClass): mixed
   {
     if (!$fieldValue || !$fieldClass) {
       return [];
@@ -91,6 +108,27 @@ class JsonTransformerService
       'craft\fields\Addresses' => $this->transformAddresses($fieldValue->all()),
       'craft\fields\Categories' => $this->transformCategories($fieldValue->all()),
       'craft\fields\Tags' => $this->transformTags($fieldValue->all()),
+      'craft\fields\Link' => $this->transformLinks($fieldValue),
+      default => $fieldValue,
+    };
+  }
+
+  /**
+   * Transforms a native field based on its class. This is needed because native fields have
+   * different field classes.
+   *
+   * @param mixed $fieldValue
+   * @param string $fieldClass
+   * @return mixed
+   */
+  private function transformNativeField(mixed $fieldValue, string $fieldClass): mixed
+  {
+    if (!$fieldValue || !$fieldClass) {
+      return [];
+    }
+
+    return match ($fieldClass) {
+      'craft\fieldlayoutelements\users\PhotoField' => $this->transformAssets([$fieldValue]),
       default => $fieldValue,
     };
   }
@@ -141,7 +179,7 @@ class JsonTransformerService
       foreach ($block->getFieldValues() as $fieldHandle => $fieldValue) {
         $field = $block->getFieldLayout()->getFieldByHandle($fieldHandle);
         $fieldClass = get_class($field);
-        $blockData[$fieldHandle] = $this->transformField($fieldValue, $fieldClass);
+        $blockData[$fieldHandle] = $this->transformCustomField($fieldValue, $fieldClass);
       }
 
       $transformedData[] = $blockData;
@@ -153,31 +191,27 @@ class JsonTransformerService
   /**
    * Transforms an array of Asset elements.
    *
-   * @param Asset[] $assets
+   * @param Asset[] | PhotoField[] $assets
    * @return array
-   * @throws InvalidConfigException
    */
   private function transformAssets(array $assets): array
   {
-    if (!$assets) {
+    if (empty($assets)) {
       return [];
     }
 
-    $transformedData = [];
-    $imageMode = 'craft';
-
+    $imageMode = Utils::isPluginInstalledAndEnabled('imager-x') ? 'imagerx' : 'craft';
     $imageTransformerService = new ImageTransformerService();
-
-    if (Utils::isPluginInstalledAndEnabled('imager-x')) {
-      $imageMode = 'imagerx';
-    }
+    $transformedData = [];
 
     foreach ($assets as $asset) {
-      if ($imageMode === 'imagerx') {
-        $transformedData[] = $imageTransformerService->imagerXTransformer($asset);
-      } else {
-        $transformedData[] = $imageTransformerService->defaultImageTransformer($asset);
-      }
+      $generalFieldData = $this->getTransformedFields($asset) ?? [];
+
+      $imageData = $imageMode === 'imagerx'
+          ? $imageTransformerService->imagerXTransformer($asset)
+          : $imageTransformerService->defaultImageTransformer($asset);
+
+      $transformedData[] = array_merge($generalFieldData, $imageData);
     }
 
     return $transformedData;
@@ -202,6 +236,7 @@ class JsonTransformerService
           'title' => $entry->title,
           'slug' => '/' . $entry->slug,
           'url' => $entry->url,
+          'id' => $entry->id,
       ];
     }
 
@@ -224,12 +259,7 @@ class JsonTransformerService
     $transformedData = [];
 
     foreach ($users as $user) {
-      $transformedFields = $this->getTransformedFields($user);
-
-      $transformedData[] = array_merge([
-          'fullName' => $user->fullName,
-          'email' => $user->email,
-      ], $transformedFields);
+      $transformedData[] = $this->getTransformedFields($user);
     }
 
     return $transformedData;
@@ -283,8 +313,8 @@ class JsonTransformerService
       $transformedFields = $this->getTransformedFields($category);
 
       $transformedData[] = array_merge([
-          'title' => $category->title,
           'slug' => $category->slug,
+          'id' => $category->id,
       ], $transformedFields);
     }
 
@@ -313,5 +343,23 @@ class JsonTransformerService
     }
 
     return $transformedData;
+  }
+
+  /**
+   * Transforms an link.
+   *
+   * @param LinkData $link
+   * @return array
+   */
+  private function transformLinks(LinkData $link): array
+  {
+    if (empty($link)) {
+      return [];
+    }
+
+    return [
+        'elementType' => $link->type,
+        'value' => $link->value,
+    ];
   }
 }
