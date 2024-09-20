@@ -9,8 +9,8 @@
 
   const route = useRoute()
 
-  const previewToken = route.query.token; 
-  const url = `http://127.0.0.1:55773/v1/entry/${route.params.slug || 'home'}${previewToken ? ('?token=' + previewToken) : ''}`
+  const previewToken = route.query.token;
+  const url = `http://127.0.0.1:55000/v1/api/entry/1/${route.params.slug || 'home'}${previewToken ? ('?token=' + previewToken) : ''}`
   const { data, error } = await useFetch<NonNullable<object>>(() => url);
 
   if (error.value) {
@@ -20,7 +20,7 @@
     });
   }
 
-  const mapping = { 
+  const mapping = {
     pages: {
       'home': PageHome,
       'news': PageNews,

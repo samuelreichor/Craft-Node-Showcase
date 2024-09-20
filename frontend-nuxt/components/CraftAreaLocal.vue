@@ -1,31 +1,38 @@
 <script lang="ts" setup>
-  const props = defineProps({
-    content: {
-      type: Object,
-      required: true,
-    }
-  })
-
-  const config = inject('config');
-
-  function getCurrentComponent(component: object) {
-    if (!config || !('components' in config)) {
-      throw new Error('Configuration is missing or invalid.');
-    }
-
-    if (!('type' in component)) {
-      throw new Error('props.content has no key named type');
-    }
-
-    const cName = component.type;
-
-    const componentEl = config.components[cName];
-    if (!componentEl) {
-      throw new Error(`No page found for section handle: ${componentEl}`);
-    }
-
-    return componentEl
+import type { Config } from '~/types/types'
+/*import { inject } from 'vue'*/
+const props = defineProps({
+  content: {
+    type: Object,
+    required: true,
   }
+})
+
+const config = inject<Config>('config');
+
+function getCurrentComponent(component: object) {
+  if (!config || !('components' in config)) {
+    throw new Error('Configuration is missing or invalid.');
+  }
+
+  if (!('type' in component)) {
+    throw new Error('props.content has no key named type');
+  }
+
+  if (typeof component.type !== 'string') {
+    throw new Error('Component type is not a string');
+  }
+
+  const cName = component.type;
+
+  const componentEl = config.components[cName];
+  if (!componentEl) {
+    console.error(`No mapped component found for component type: ${cName}`);
+    return null;
+  }
+
+  return componentEl
+}
 </script>
 
 <template>

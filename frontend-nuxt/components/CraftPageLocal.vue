@@ -1,12 +1,5 @@
 <script lang="ts" setup>
-  type Config = {
-    pages: {
-      [key: string]: Record<string, DefineComponent>,
-    },
-    components: {
-      [key: string]: Record<string, DefineComponent>,
-    }
-  }
+  import type { Config } from '~/types/types'
 
   const props = defineProps({
     config: {
@@ -43,7 +36,8 @@
 
     const pageComponent = props.config.pages[currentSectionHandle];
     if (!pageComponent) {
-      throw new Error(`No page found for section handle: ${currentSectionHandle}`);
+      console.error(`No mapped page found for page handle: ${currentSectionHandle}`);
+      return null;
     }
 
     return pageComponent;
@@ -54,6 +48,6 @@
 
 <template>
   <div>
-    <component :is="getCurrentPage()" v-bind="props.content"/>
+    <component :is="getCurrentPage()" v-bind="props.content" />
   </div>
 </template>
