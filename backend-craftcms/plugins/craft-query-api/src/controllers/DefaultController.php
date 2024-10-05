@@ -18,22 +18,23 @@ class DefaultController extends Controller
    */
   public function actionGetCustomQueryResult(): Response
   {
+    // Get request parameters
+    $request = Craft::$app->getRequest();
+    $params = $request->getQueryParams();
+    $elementType = $request->getParam('elementType') ?? 'entries';
 
-      // Get request parameters
-      $request = Craft::$app->getRequest();
-      $params = $request->getQueryParams();
-      $elementType = $request->getParam('elementType') ?? 'entries';
+    // Instantiate the Query Service and handle query execution
+    $queryService = new ElementQueryService();
+    $result = $queryService->executeQuery($elementType, $params);
 
-      // Instantiate the Query Service and handle query execution
-      $queryService = new ElementQueryService();
-      $result = $queryService->executeQuery($elementType, $params);
+    // Instantiate the Transform Service and handle transforming different elementTypes
+    $transformerService = new JsonTransformerService();
+    $transformedData = $transformerService->executeTransform($result);
 
-      // Instantiate the Transform Service and handle transforming different elementTypes
-      $transformerService = new JsonTransformerService();
-      $transformedData = $transformerService->executeTransform($result);
-
-      return $this->asJson($transformedData);
-
-
+    $queryOne = isset($params['one']) && $params['one'] === '1';
+    if ($queryOne) {
+      return $this->asJson($transformedData[0]);
+    }
+    return $this->asJson($transformedData);
   }
 }

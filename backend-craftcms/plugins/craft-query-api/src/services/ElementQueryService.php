@@ -9,6 +9,7 @@ use craft\elements\Entry;
 use craft\elements\User;
 use craft\fields\BaseRelationField;
 use craft\fields\Matrix;
+use craft\helpers\App;
 use Exception;
 use samuelreichoer\queryapi\helpers\Utils;
 
@@ -19,7 +20,7 @@ class ElementQueryService
   private array $allowedMethods = [
       'addresses' => ['addressLine1', 'addressLine2', 'addressLine3', 'locality', 'organization', 'fullName'],
       'assets' => ['volume', 'kind', 'filename'],
-      'entries' => ['slug', 'section', 'postDate'],
+      'entries' => ['slug', 'uri', 'section', 'postDate'],
       'users' => ['group', 'groupId', 'authorOf', 'email', 'fullName', 'hasPhoto'],
   ];
 
@@ -29,6 +30,7 @@ class ElementQueryService
    */
   public function executeQuery(string $elementType, array $params): array
   {
+    $duration = App::env('CRAFT_ENVIRONMENT') === 'dev' ? 0 : 3600;
     $hashedParamsKey = Utils::generateCacheKey($params);
     $cacheKey = 'queryapi_' . $elementType . '_' .$hashedParamsKey;
 
@@ -56,7 +58,7 @@ class ElementQueryService
     Craft::$app->getCache()->set(
         $cacheKey,
         $queriedData,
-        3600,
+        $duration,
         $cacheInfo[0]
     );
     return $queriedData;
