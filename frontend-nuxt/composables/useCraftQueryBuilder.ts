@@ -2,8 +2,11 @@ import { ref } from 'vue';
 import { useFetch } from '#app';
 import type { Ref } from 'vue';
 
+type ElementType = 'addresses' | 'assets' | 'entries' | 'users';
+
 // Common query parameters shared by all element types, including allowed default methods
 interface CommonQueryParams {
+  elementType?: ElementType;
   id?: number;
   one?: string;
   all?: string;
@@ -14,7 +17,7 @@ interface CommonQueryParams {
 }
 
 // Specific query parameters for each element type
-interface AddressQueryParams extends CommonQueryParams {
+interface AddressQueryParams {
   addressLine1?: string;
   addressLine2?: string;
   addressLine3?: string;
@@ -23,19 +26,20 @@ interface AddressQueryParams extends CommonQueryParams {
   fullName?: string;
 }
 
-interface AssetQueryParams extends CommonQueryParams {
+interface AssetQueryParams {
   volume?: string;
   kind?: string;
   filename?: string;
 }
 
-interface EntryQueryParams extends CommonQueryParams {
+interface EntryQueryParams {
   slug?: string;
+  uri?: string | string[];
   section?: string;
   postDate?: string;
 }
 
-interface UserQueryParams extends CommonQueryParams {
+interface UserQueryParams {
   group?: string;
   groupId?: string;
   authorOf?: string;
@@ -44,13 +48,8 @@ interface UserQueryParams extends CommonQueryParams {
   hasPhoto?: boolean;
 }
 
-// Mapping from ElementType to its specific QueryParams
-interface QueryParamsMap {
-  addresses: AddressQueryParams;
-  assets: AssetQueryParams;
-  entries: EntryQueryParams;
-  users: UserQueryParams;
-}
+// Merge Queryparams for better dx
+type MergedQueryParams = CommonQueryParams & AddressQueryParams & AssetQueryParams & EntryQueryParams & UserQueryParams;
 
 // Definition of the return type of useFetch (adjust based on your actual API response)
 interface FetchResult {
@@ -87,6 +86,7 @@ interface AssetQueryBuilder extends CommonQueryBuilder {
 
 interface EntryQueryBuilder extends CommonQueryBuilder {
   slug: (value: string) => this;
+  uri: (value: string | string[]) => this;
   section: (value: string) => this;
   postDate: (value: string) => this;
 }
@@ -108,8 +108,6 @@ interface QueryBuilderMap {
   users: UserQueryBuilder;
 }
 
-type ElementType = 'addresses' | 'assets' | 'entries' | 'users';
-
 // Define function overloads for each ElementType
 export function useQueryBuilder(elementType: 'addresses'): AddressQueryBuilder;
 export function useQueryBuilder(elementType: 'assets'): AssetQueryBuilder;
@@ -120,8 +118,8 @@ export function useQueryBuilder(elementType: 'users'): UserQueryBuilder;
 export function useQueryBuilder<T extends ElementType>(
   elementType: T,
 ): QueryBuilderMap[T] {
-  // Use the specific QueryParams type based on T
-  const params = ref<QueryParamsMap[T]>({} as QueryParamsMap[T]);
+
+  const params = ref<MergedQueryParams>({});
 
   params.value.elementType = elementType;
 
@@ -135,8 +133,10 @@ export function useQueryBuilder<T extends ElementType>(
     const queryString = new URLSearchParams(queryParams).toString();
     console.log(queryString);
 
+    const route = useRoute();
+    const previewToken = route.query.token;
     const { data, error } = await useFetch(
-      `http://127.0.0.1:64317/v1/api/customQuery?${queryString}`,
+      `http://127.0.0.1:62603/v1/api/customQuery?${queryString}${previewToken ? '&token=' + previewToken : ''}`,
     );
 
     return { data, error };
@@ -144,23 +144,23 @@ export function useQueryBuilder<T extends ElementType>(
 
   // Common methods shared by all element types, including allowed default methods
   const commonBuilder = {
-    id(id: number) {
+    id(id) {
       params.value.id = id;
       return this;
     },
-    limit(limit: number) {
+    limit(limit) {
       params.value.limit = limit;
       return this;
     },
-    status(status: string) {
+    status(status) {
       params.value.status = status;
       return this;
     },
-    offset(offset: number) {
+    offset(offset) {
       params.value.offset = offset;
       return this;
     },
-    orderBy(orderBy: string) {
+    orderBy(orderBy) {
       params.value.orderBy = orderBy;
       return this;
     },
@@ -174,33 +174,33 @@ export function useQueryBuilder<T extends ElementType>(
       params.value.one = undefined;
       return executeFetch();
     },
-  };
+  } as QueryBuilderMap[T];;
 
   // Element-specific methods based on elementType
   if (elementType === 'addresses') {
     return {
       ...commonBuilder,
-      addressLine1(value: string) {
+      addressLine1(value) {
         params.value.addressLine1 = value;
         return this;
       },
-      addressLine2(value: string) {
+      addressLine2(value) {
         params.value.addressLine2 = value;
         return this;
       },
-      addressLine3(value: string) {
+      addressLine3(value) {
         params.value.addressLine3 = value;
         return this;
       },
-      locality(value: string) {
+      locality(value) {
         params.value.locality = value;
         return this;
       },
-      organization(value: string) {
+      organization(value) {
         params.value.organization = value;
         return this;
       },
-      fullName(value: string) {
+      fullName(value) {
         params.value.fullName = value;
         return this;
       },
@@ -210,15 +210,15 @@ export function useQueryBuilder<T extends ElementType>(
   if (elementType === 'assets') {
     return {
       ...commonBuilder,
-      volume(value: string) {
+      volume(value) {
         params.value.volume = value;
         return this;
       },
-      kind(value: string) {
+      kind(value) {
         params.value.kind = value;
         return this;
       },
-      filename(value: string) {
+      filename(value) {
         params.value.filename = value;
         return this;
       },
@@ -228,15 +228,19 @@ export function useQueryBuilder<T extends ElementType>(
   if (elementType === 'entries') {
     return {
       ...commonBuilder,
-      slug(value: string) {
+      slug(value) {
         params.value.slug = value;
         return this;
       },
-      section(value: string) {
+      uri(value) {
+        params.value.uri = Array.isArray(value) ? value.filter(value => value !== '').join('/') : value;
+        return this;
+      },
+      section(value) {
         params.value.section = value;
         return this;
       },
-      postDate(value: string) {
+      postDate(value) {
         params.value.postDate = value;
         return this;
       },
@@ -246,27 +250,27 @@ export function useQueryBuilder<T extends ElementType>(
   if (elementType === 'users') {
     return {
       ...commonBuilder,
-      group(value: string) {
+      group(value) {
         params.value.group = value;
         return this;
       },
-      groupId(value: string) {
+      groupId(value) {
         params.value.groupId = value;
         return this;
       },
-      authorOf(value: string) {
+      authorOf(value) {
         params.value.authorOf = value;
         return this;
       },
-      email(value: string) {
+      email(value) {
         params.value.email = value;
         return this;
       },
-      fullName(value: string) {
+      fullName(value) {
         params.value.fullName = value;
         return this;
       },
-      hasPhoto(value: boolean) {
+      hasPhoto(value) {
         params.value.hasPhoto = value;
         return this;
       },
