@@ -1,4 +1,4 @@
-dateModified: 1726838233
+dateModified: 1727955987
 email:
   fromEmail: samuelreichor@gmail.com
   fromName: Default
@@ -35,6 +35,7 @@ meta:
     c0ffe0d6-ee6f-45d7-9d5b-cc469270ff26: Richtext # Richtext
     c5bed593-74ed-420d-b526-ac96195a0e55: 'News Tag' # News Tag
     c6f999d6-4930-49f6-9bca-9426a6058f93: 'Link Field' # Link Field
+    c278c7cd-a184-4d26-82cf-eaeb5f993fef: 'Test Relation' # Test Relation
     cdf26765-b403-4449-8086-e526d5c50b2a: 'Address Field' # Address Field
     d75e17fc-6378-4a30-9b59-14da2cd66fa0: 'News Filter' # News Filter
     dda891de-1c3b-4002-8b43-3ee0c7d19fc5: 'Select Author' # Select Author
@@ -73,6 +74,53 @@ plugins:
     enabled: true
     licenseKey: 3NW9FZ9R0GG0HMVXPE8F9OHZ
     schemaVersion: 3.0.12
+    settings:
+      addHrefLang: true
+      addPaginatedHreflang: true
+      addXDefaultHrefLang: true
+      alwaysIncludeCanonicalUrls: false
+      cpTitlePrefix: '⚙ '
+      cspNonce: ''
+      cspScriptSrcPolicies:
+        -
+          __assoc__:
+            -
+              - policy
+              - '''self'''
+      devModeCpTitlePrefix: '🚧⚙ '
+      devModeTitlePrefix: '🚧 '
+      displayAnalysisSidebar: true
+      displayPreviewSidebar: true
+      enableDebugToolbarPanel: true
+      enableJsonLdEndpoint: true
+      enableMetaContainerEndpoint: true
+      enableSeoFileLinkEndpoint: true
+      environment: live
+      excludeNonCanonicalUrls: false
+      generatorEnabled: true
+      headersEnabled: true
+      includeHomepageInBreadcrumbs: true
+      lowercaseCanonicalUrl: true
+      manuallySetEnvironment: false
+      maxDescriptionLength: 155
+      maxTitleLength: 70
+      metaCacheDuration: 0
+      pluginName: SEOmatic
+      regenerateSitemapsAutomatically: true
+      renderEnabled: true
+      separatorChar: '|'
+      sidebarDisplayPreviewTypes:
+        - google
+        - twitter
+        - facebook
+      siteGroupsSeparate: true
+      siteUrlOverride: ''
+      sitemapsEnabled: true
+      socialMediaPreviewTarget: true
+      submitSitemaps: true
+      truncateDescriptionTags: true
+      truncateTitleTags: true
+      xDefaultSite: 0
 system:
   edition: pro
   live: true
