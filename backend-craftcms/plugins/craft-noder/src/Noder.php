@@ -53,6 +53,7 @@ class Noder extends Plugin
         function(RegisterUrlRulesEvent $event) {
           $event->rules = array_merge($event->rules, [
               'GET /v1/api/entry/<siteId:\d+>/<slug>' => 'craft-noder/default/get-entry',
+              'GET /v1/api/customQuery' => 'craft-noder/default/get-custom-query-result',
           ]);
         }
     );
