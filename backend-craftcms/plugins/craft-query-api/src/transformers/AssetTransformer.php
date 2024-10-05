@@ -1,11 +1,11 @@
 <?php
 
-namespace samuelreichoer\craftnoder\transformers;
+namespace samuelreichoer\queryapi\transformers;
 
 use Craft;
 use craft\elements\Asset;
 use craft\errors\ImageTransformException;
-use samuelreichoer\craftnoder\helpers\Utils;
+use samuelreichoer\queryapi\helpers\Utils;
 use yii\base\InvalidConfigException;
 
 class AssetTransformer extends BaseTransformer

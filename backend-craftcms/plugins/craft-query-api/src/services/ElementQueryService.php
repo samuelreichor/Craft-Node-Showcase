@@ -1,5 +1,5 @@
 <?php
-namespace samuelreichoer\craftnoder\services;
+namespace samuelreichoer\queryapi\services;
 
 use craft\elements\Address;
 use craft\elements\Asset;

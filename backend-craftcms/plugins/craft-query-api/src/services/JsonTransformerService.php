@@ -1,5 +1,5 @@
 <?php
-namespace samuelreichoer\craftnoder\services;
+namespace samuelreichoer\queryapi\services;
 
 use craft\elements\Address;
 use craft\elements\Asset;
@@ -8,13 +8,13 @@ use craft\elements\Entry;
 use craft\elements\Tag;
 use craft\elements\User;
 use Exception;
-use samuelreichoer\craftnoder\transformers\BaseTransformer;
-use samuelreichoer\craftnoder\transformers\EntryTransformer;
-use samuelreichoer\craftnoder\transformers\AssetTransformer;
-use samuelreichoer\craftnoder\transformers\UserTransformer;
-use samuelreichoer\craftnoder\transformers\AddressTransformer;
-use samuelreichoer\craftnoder\transformers\CategoryTransformer;
-use samuelreichoer\craftnoder\transformers\TagTransformer;
+use samuelreichoer\queryapi\transformers\BaseTransformer;
+use samuelreichoer\queryapi\transformers\EntryTransformer;
+use samuelreichoer\queryapi\transformers\AssetTransformer;
+use samuelreichoer\queryapi\transformers\UserTransformer;
+use samuelreichoer\queryapi\transformers\AddressTransformer;
+use samuelreichoer\queryapi\transformers\CategoryTransformer;
+use samuelreichoer\queryapi\transformers\TagTransformer;
 
 class JsonTransformerService
 {

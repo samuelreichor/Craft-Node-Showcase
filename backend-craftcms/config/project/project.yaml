@@ -1,4 +1,4 @@
-dateModified: 1727955987
+dateModified: 1728142617
 email:
   fromEmail: samuelreichor@gmail.com
   fromName: Default
@@ -56,7 +56,7 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
-  craft-noder:
+  craft-query-api:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
@@ -65,7 +65,7 @@ plugins:
     enabled: true
     schemaVersion: 1.0.0
   imager-x:
-    edition: lite
+    edition: pro
     enabled: true
     licenseKey: I414X0BWX2GT7GGF069ILWDA
     schemaVersion: 4.0.0

@@ -1,6 +1,6 @@
-# craft-noder
+# CraftQuery API
 
-A plugin that speeds up development in headless mode with js frameworks
+A plugin that speeds up development in headless mode with custom fetch queries
 
 ## Requirements
 
@@ -12,7 +12,7 @@ You can install this plugin from the Plugin Store or with Composer.
 
 #### From the Plugin Store
 
-Go to the Plugin Store in your project’s Control Panel and search for “craft-noder”. Then press “Install”.
+Go to the Plugin Store in your project’s Control Panel and search for “CraftQuery API”. Then press “Install”.
 
 #### With Composer
 
@@ -23,8 +23,8 @@ Open your terminal and run the following commands:
 cd /path/to/my-project.test
 
 # tell Composer to load the plugin
-composer require samuel-reichoer/craft-noder
+composer require samuel-reichoer/craft-query-api
 
 # tell Craft to install the plugin
-./craft plugin/install craft-noder
+./craft plugin/install craft-query-api
 ```

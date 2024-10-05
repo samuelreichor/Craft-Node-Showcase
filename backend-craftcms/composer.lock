@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "35d7b2dea8da2ae855ba248a6dd70110",
+    "content-hash": "fd7917d5c5d8966dd3b0a15ee584e406",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -495,67 +495,6 @@
                 "rss": "https://github.com/craftcms/cms/releases.atom"
             },
             "time": "2024-08-26T17:21:51+00:00"
-        },
-        {
-            "name": "craftcms/element-api",
-            "version": "4.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/craftcms/element-api.git",
-                "reference": "3fbcff86e8caf912c4f614e24555deef7d846384"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/element-api/zipball/3fbcff86e8caf912c4f614e24555deef7d846384",
-                "reference": "3fbcff86e8caf912c4f614e24555deef7d846384",
-                "shasum": ""
-            },
-            "require": {
-                "craftcms/cms": "^4.3.0|^5.0.0-beta.1",
-                "league/fractal": "^0.20.1"
-            },
-            "require-dev": {
-                "craftcms/ecs": "dev-main",
-                "craftcms/phpstan": "dev-main",
-                "craftcms/rector": "dev-main"
-            },
-            "type": "craft-plugin",
-            "extra": {
-                "name": "Element API",
-                "handle": "element-api",
-                "documentationUrl": "https://github.com/craftcms/element-api/blob/v2/README.md"
-            },
-            "autoload": {
-                "psr-4": {
-                    "craft\\elementapi\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Pixel & Tonic",
-                    "homepage": "https://pixelandtonic.com/"
-                }
-            ],
-            "description": "Create a JSON API for your elements in Craft",
-            "keywords": [
-                "api",
-                "cms",
-                "craftcms",
-                "json",
-                "yii2"
-            ],
-            "support": {
-                "docs": "https://github.com/craftcms/element-api/blob/v2/README.md",
-                "email": "support@craftcms.com",
-                "issues": "https://github.com/craftcms/element-api/issues?state=open",
-                "rss": "https://github.com/craftcms/element-api/commits/v2.atom",
-                "source": "https://github.com/craftcms/element-api"
-            },
-            "time": "2024-03-14T13:15:22+00:00"
         },
         {
             "name": "craftcms/html-field",
@@ -2110,76 +2049,6 @@
             "time": "2023-11-17T17:00:27+00:00"
         },
         {
-            "name": "league/fractal",
-            "version": "0.20.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/thephpleague/fractal.git",
-                "reference": "8b9d39b67624db9195c06f9c1ffd0355151eaf62"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/fractal/zipball/8b9d39b67624db9195c06f9c1ffd0355151eaf62",
-                "reference": "8b9d39b67624db9195c06f9c1ffd0355151eaf62",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.4"
-            },
-            "require-dev": {
-                "doctrine/orm": "^2.5",
-                "illuminate/contracts": "~5.0",
-                "mockery/mockery": "^1.3",
-                "pagerfanta/pagerfanta": "~1.0.0",
-                "phpstan/phpstan": "^1.4",
-                "phpunit/phpunit": "^9.5",
-                "squizlabs/php_codesniffer": "~3.4",
-                "vimeo/psalm": "^4.22",
-                "zendframework/zend-paginator": "~2.3"
-            },
-            "suggest": {
-                "illuminate/pagination": "The Illuminate Pagination component.",
-                "pagerfanta/pagerfanta": "Pagerfanta Paginator",
-                "zendframework/zend-paginator": "Zend Framework Paginator"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "0.20.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "League\\Fractal\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Phil Sturgeon",
-                    "email": "me@philsturgeon.uk",
-                    "homepage": "http://philsturgeon.uk/",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Handle the output of complex data structures ready for API output.",
-            "homepage": "http://fractal.thephpleague.com/",
-            "keywords": [
-                "api",
-                "json",
-                "league",
-                "rest"
-            ],
-            "support": {
-                "issues": "https://github.com/thephpleague/fractal/issues",
-                "source": "https://github.com/thephpleague/fractal/tree/0.20.1"
-            },
-            "time": "2022-04-11T12:47:17+00:00"
-        },
-        {
             "name": "mikehaertl/php-shellcommand",
             "version": "1.7.0",
             "dist": {
@@ -3719,16 +3588,15 @@
             "time": "2023-11-23T14:11:29+00:00"
         },
         {
-            "name": "samuel-reichoer/craft-noder",
+            "name": "samuel-reichoer/craft-query-api",
             "version": "dev-main",
             "dist": {
                 "type": "path",
-                "url": "plugins/craft-noder",
-                "reference": "1caad4805885a76914a6cd00b706d5d72b944d8b"
+                "url": "plugins/craft-query-api",
+                "reference": "601ccb9875bdd74a93820e871ef599e5c35320f6"
             },
             "require": {
                 "craftcms/cms": "^5.0.0",
-                "craftcms/element-api": "4.1.0",
                 "php": ">=8.2"
             },
             "require-dev": {
@@ -3737,15 +3605,15 @@
             },
             "type": "craft-plugin",
             "extra": {
-                "handle": "craft-noder",
-                "name": "craft-noder",
-                "developer": "Samuel Reichör",
-                "documentationUrl": "https://github.com/samuelreichor/craft-noder",
-                "class": "samuelreichoer\\craftnoder\\Noder"
+                "handle": "craft-query-api",
+                "name": "CraftQuery API",
+                "developer": "Samuel Reichoer",
+                "documentationUrl": "https://github.com/samuelreichor/craft-query-api",
+                "class": "samuelreichoer\\queryapi\\QueryApi"
             },
             "autoload": {
                 "psr-4": {
-                    "samuelreichoer\\craftnoder\\": "src/"
+                    "samuelreichoer\\queryapi\\": "src/"
                 }
             },
             "scripts": {
@@ -3762,13 +3630,13 @@
             "license": [
                 "mit"
             ],
-            "description": "A plugin that speeds up development in headless mode with js frameworks",
+            "description": "Speeds up development in headless mode with custom fetch queries",
             "support": {
                 "email": "samuelreichor@gmail.com",
-                "issues": "https://github.com/samuelreichor/craft-noder/issues?state=open",
-                "source": "https://github.com/samuelreichor/craft-noder",
-                "docs": "https://github.com/samuelreichor/craft-noder",
-                "rss": "https://github.com/samuelreichor/craft-noder/releases.atom"
+                "issues": "https://github.com/samuelreichor/craft-query-api/issues?state=open",
+                "source": "https://github.com/samuelreichor/craft-query-api",
+                "docs": "https://github.com/samuelreichor/craft-query-api",
+                "rss": "https://github.com/samuelreichor/craft-query-api/releases.atom"
             },
             "transport-options": {
                 "relative": true
@@ -7147,7 +7015,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "samuel-reichoer/craft-noder": 20
+        "samuel-reichoer/craft-query-api": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

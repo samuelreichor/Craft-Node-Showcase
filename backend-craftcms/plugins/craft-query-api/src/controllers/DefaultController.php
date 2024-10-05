@@ -1,12 +1,12 @@
 <?php
 
-namespace samuelreichoer\craftnoder\controllers;
+namespace samuelreichoer\queryapi\controllers;
 
 use Craft;
 use craft\web\Controller;
 use Exception;
-use samuelreichoer\craftnoder\services\ElementQueryService;
-use samuelreichoer\craftnoder\services\JsonTransformerService;
+use samuelreichoer\queryapi\services\ElementQueryService;
+use samuelreichoer\queryapi\services\JsonTransformerService;
 use yii\web\Response;
 
 class DefaultController extends Controller

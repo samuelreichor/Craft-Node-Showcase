@@ -1,6 +1,6 @@
 <?php
 
-namespace samuelreichoer\craftnoder\transformers;
+namespace samuelreichoer\queryapi\transformers;
 
 use craft\elements\Tag;
 

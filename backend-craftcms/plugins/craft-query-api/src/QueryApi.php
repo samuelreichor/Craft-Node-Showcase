@@ -1,6 +1,6 @@
 <?php
 
-namespace samuelreichoer\craftnoder;
+namespace samuelreichoer\queryapi;
 
 use Craft;
 use craft\base\Plugin;
@@ -10,14 +10,14 @@ use craft\web\UrlManager;
 use yii\base\Event;
 
 /**
- * craft-noder plugin
+ * CraftQuery API plugin
  *
- * @method static Noder getInstance()
- * @author Samuel Reichör <samuelreichor@gmail.com>
- * @copyright Samuel Reichör
+ * @method static QueryApi getInstance()
+ * @author Samuel Reichoer <samuelreichor@gmail.com>
+ * @copyright Samuel Reichoer
  * @license MIT
  */
-class Noder extends Plugin
+class QueryApi extends Plugin
 {
   public string $schemaVersion = '1.0.0';
 
@@ -36,24 +36,15 @@ class Noder extends Plugin
 
     $this->initLogger();
     $this->attachEventHandlers();
-
-    // Any code that creates an element query or loads Twig should be deferred until
-    // after Craft is fully initialized, to avoid conflicts with other plugins/modules
-    Craft::$app->onInit(function () {
-      // ...
-    });
   }
 
   private function attachEventHandlers(): void
   {
-    // Register event handlers here ...
-    // (see https://craftcms.com/docs/5.x/extend/events.html to get started)
-
     Event::on(UrlManager::class, UrlManager::EVENT_REGISTER_SITE_URL_RULES,
         function(RegisterUrlRulesEvent $event) {
           $event->rules = array_merge($event->rules, [
-              'GET /v1/api/entry/<siteId:\d+>/<slug>' => 'craft-noder/default/get-entry',
-              'GET /v1/api/customQuery' => 'craft-noder/default/get-custom-query-result',
+              'GET /v1/api/entry/<siteId:\d+>/<slug>' => 'craft-query-api/default/get-entry',
+              'GET /v1/api/customQuery' => 'craft-query-api/default/get-custom-query-result',
           ]);
         }
     );
@@ -62,9 +53,9 @@ class Noder extends Plugin
   private function initLogger(): void
   {
     $logFileTarget = new FileTarget([
-        'logFile' => '@storage/logs/noder.log',
+        'logFile' => '@storage/logs/queryApi.log',
         'maxLogFiles' => 10,
-        'categories' => ['noder'],
+        'categories' => ['queryApi'],
         'logVars' => [],
     ]);
     Craft::getLogger()->dispatcher->targets[] = $logFileTarget;

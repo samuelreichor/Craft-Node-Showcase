@@ -1,6 +1,6 @@
 <?php
 
-namespace samuelreichoer\craftnoder\helpers;
+namespace samuelreichoer\queryapi\helpers;
 
 use Craft;
 
