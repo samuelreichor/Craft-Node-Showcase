@@ -13,26 +13,24 @@
   })
 
   function getCurrentSectionHandle(): string {
-    if (!props.content) {
-      throw new Error('Content is missing.');
-    }
-
     if (!('sectionHandle' in props.content)) {
-      throw new Error('props.content has no key named sectionHandle');
+      return '404';
     }
 
     return props.content.sectionHandle;
   }
 
   function getCurrentPage() {
+    if (!props.config || !('pages' in props.config)) {
+      throw new Error('Configuration is missing or invalid.');
+    }
+
     const currentSectionHandle = getCurrentSectionHandle();
+
     if (!currentSectionHandle) {
       throw new Error('Invalid section handle.');
     }
 
-    if (!props.config || !('pages' in props.config)) {
-      throw new Error('Configuration is missing or invalid.');
-    }
 
     const pageComponent = props.config.pages[currentSectionHandle];
     if (!pageComponent) {
