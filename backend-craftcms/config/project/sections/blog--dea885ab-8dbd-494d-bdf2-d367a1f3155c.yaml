@@ -1,0 +1,30 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  - 0411514a-5a41-4ca8-8863-3d076e5aa670 # Home
+handle: blog
+maxAuthors: 1
+name: Blog
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+      -
+        - refresh
+        - '1'
+propagationMethod: all
+siteSettings:
+  f1b75f00-f4ed-4958-8a70-45714133b929: # Default
+    enabledByDefault: true
+    hasUrls: true
+    template: blog/_entry.twig
+    uriFormat: '{parent.uri}/{slug}'
+structure:
+  maxLevels: null
+  uid: b25d41d8-21fd-48c0-b4f9-2c425ac05097
+type: structure

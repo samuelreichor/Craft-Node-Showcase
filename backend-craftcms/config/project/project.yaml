@@ -1,4 +1,4 @@
-dateModified: 1728142617
+dateModified: 1728155245
 email:
   fromEmail: samuelreichor@gmail.com
   fromName: Default
@@ -39,6 +39,7 @@ meta:
     cdf26765-b403-4449-8086-e526d5c50b2a: 'Address Field' # Address Field
     d75e17fc-6378-4a30-9b59-14da2cd66fa0: 'News Filter' # News Filter
     dda891de-1c3b-4002-8b43-3ee0c7d19fc5: 'Select Author' # Select Author
+    dea885ab-8dbd-494d-bdf2-d367a1f3155c: Blog # Blog
     e8b13026-7e14-481b-a8ca-dbd098c02b62: Text # Text
     e38a46b6-d1cd-4891-832a-f74ee486ec01: Images # Images
     edb55a62-f7ff-4193-a422-7509b7abdacd: 'News Tag' # News Tag
