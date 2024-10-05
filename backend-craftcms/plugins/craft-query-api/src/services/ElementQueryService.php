@@ -1,11 +1,16 @@
 <?php
 namespace samuelreichoer\queryapi\services;
 
+use Craft;
+use craft\base\FieldInterface;
 use craft\elements\Address;
 use craft\elements\Asset;
 use craft\elements\Entry;
 use craft\elements\User;
+use craft\fields\BaseRelationField;
+use craft\fields\Matrix;
 use Exception;
+use samuelreichoer\queryapi\helpers\Utils;
 
 class ElementQueryService
 {
@@ -24,6 +29,15 @@ class ElementQueryService
    */
   public function executeQuery(string $elementType, array $params): array
   {
+    $hashedParamsKey = Utils::generateCacheKey($params);
+    $cacheKey = 'queryapi_' . $elementType . '_' .$hashedParamsKey;
+
+    if ($result = Craft::$app->getCache()->get($cacheKey)) {
+      return $result;
+    }
+
+    Craft::$app->getElements()->startCollectingCacheInfo();
+
     $query = $this->handleQuery($elementType, $params);
 
     $queryOne = isset($params['one']) && $params['one'] === '1';
@@ -33,8 +47,18 @@ class ElementQueryService
       throw new Exception('No query was executed. This is usually because .one() or .all() is missing in the query');
     }
 
+    $eagerloadingMap = $this->getEagerLoadingMap();
+    $query->with($eagerloadingMap);
     $queriedData = $queryOne ? [$query->one()] : $query->all();
 
+    $cacheInfo = Craft::$app->getElements()->stopCollectingCacheInfo();
+
+    Craft::$app->getCache()->set(
+        $cacheKey,
+        $queriedData,
+        3600,
+        $cacheInfo[0]
+    );
     return $queriedData;
   }
 
@@ -86,5 +110,50 @@ class ElementQueryService
     }
 
     return array_merge($this->allowedDefaultMethods, $this->allowedMethods[$elementType]);
+  }
+
+  public function getEagerLoadingMap(): array
+  {
+    $mapKey = [];
+
+    foreach (Craft::$app->getFields()->getAllFields() as $field) {
+      if ($keys = $this->_getEagerLoadingMapForField($field)) {
+        $mapKey[] = $keys;
+      }
+    }
+
+    return array_merge(...$mapKey);
+  }
+
+  private function _getEagerLoadingMapForField(FieldInterface $field, ?string $prefix = null, int $iteration = 0): array
+  {
+    $keys = [];
+
+    if ($field instanceof Matrix) {
+      if ($iteration > 5) {
+        return [];
+      }
+
+      $iteration++;
+
+      // Because Matrix fields can be infinitely nested, we need to short-circuit things to prevent infinite looping.
+      $keys[] = $prefix . $field->handle;
+
+      foreach ($field->getEntryTypes() as $entryType) {
+        foreach ($entryType->getCustomFields() as $subField) {
+          $nestedKeys = $this->_getEagerLoadingMapForField($subField, $prefix . $field->handle . '.' . $entryType->handle . ':', $iteration);
+
+          if ($nestedKeys) {
+            $keys = array_merge($keys, $nestedKeys);
+          }
+        }
+      }
+    }
+
+    if ($field instanceof BaseRelationField) {
+      $keys[] = $prefix . $field->handle;
+    }
+
+    return $keys;
   }
 }
