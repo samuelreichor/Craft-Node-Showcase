@@ -126,7 +126,7 @@ export function useQueryBuilder<T extends ElementType>(
   const executeFetch = async (): Promise<FetchResult> => {
     const queryParams = Object.fromEntries(
       Object.entries(params.value)
-        .filter(([_, value]) => value !== undefined)
+        .filter(([_, value]) => value !== undefined && value !== null && value != '')
         .map(([key, value]) => [key, String(value)]),
     );
 
