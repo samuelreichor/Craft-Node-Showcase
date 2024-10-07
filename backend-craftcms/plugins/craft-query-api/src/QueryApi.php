@@ -43,8 +43,9 @@ class QueryApi extends Plugin
     Event::on(UrlManager::class, UrlManager::EVENT_REGISTER_SITE_URL_RULES,
         function(RegisterUrlRulesEvent $event) {
           $event->rules = array_merge($event->rules, [
-              'GET /v1/api/entry/<siteId:\d+>/<slug>' => 'craft-query-api/default/get-entry',
-              'GET /v1/api/customQuery' => 'craft-query-api/default/get-custom-query-result',
+              'GET /<version>/api/customQuery' => 'craft-query-api/default/get-custom-query-result',
+              'GET /<version>/api/allRoutes' => 'craft-query-api/default/get-all-routes',
+              'GET /<version>/api/allRoutes/<siteId>' => 'craft-query-api/default/get-all-routes',
           ]);
         }
     );
