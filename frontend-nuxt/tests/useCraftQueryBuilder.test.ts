@@ -61,12 +61,20 @@ describe('useQueryBuilder Tests', () => {
       const queryBuilder = useQueryBuilder('assets');
 
       // Call all commonBuilder functions
-      await queryBuilder.id(1).limit(5).status('active').offset(2).orderBy('name').all();
+      await queryBuilder
+        .id(1)
+        .limit(5)
+        .status('active')
+        .offset(2)
+        .orderBy('name')
+        .site('default')
+        .siteId(1)
+        .all();
 
       // Ensure the correct query is built
       const [calledUrl] = useFetch.mock.calls[0];
       expect(calledUrl).toContain(
-        'elementType=assets&id=1&limit=5&status=active&offset=2&orderBy=name&all=1',
+        'elementType=assets&id=1&limit=5&status=active&offset=2&orderBy=name&site=default&siteId=1&all=1',
       );
     });
 
@@ -108,12 +116,14 @@ describe('useQueryBuilder Tests', () => {
         .uri(['news', '2023'])
         .section('news')
         .postDate('2023-01-01')
+        .site('default')
+        .siteId(1)
         .one();
 
       // Ensure the correct query is built
       const [calledUrl] = useFetch.mock.calls[0];
       expect(calledUrl).toContain(
-        'elementType=entries&slug=my-slug&uri=news%2F2023&section=news&postDate=2023-01-01&one=1',
+        'elementType=entries&slug=my-slug&uri=news%2F2023&section=news&postDate=2023-01-01&site=default&siteId=1&one=1',
       );
     });
   });

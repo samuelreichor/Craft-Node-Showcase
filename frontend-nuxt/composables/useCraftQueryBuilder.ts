@@ -30,6 +30,8 @@ interface AssetQueryParams {
   volume?: string;
   kind?: string;
   filename?: string;
+  site?: string;
+  siteId?: number;
 }
 
 interface EntryQueryParams {
@@ -37,6 +39,8 @@ interface EntryQueryParams {
   uri?: string | string[];
   section?: string;
   postDate?: string;
+  site?: string;
+  siteId?: number;
 }
 
 interface UserQueryParams {
@@ -82,6 +86,8 @@ interface AssetQueryBuilder extends CommonQueryBuilder {
   volume: (value: string) => this;
   kind: (value: string) => this;
   filename: (value: string) => this;
+  site: (value: string) => this;
+  siteId: (value: number) => this;
 }
 
 interface EntryQueryBuilder extends CommonQueryBuilder {
@@ -89,6 +95,8 @@ interface EntryQueryBuilder extends CommonQueryBuilder {
   uri: (value: string | string[]) => this;
   section: (value: string) => this;
   postDate: (value: string) => this;
+  site: (value: string) => this;
+  siteId: (value: number) => this;
 }
 
 interface UserQueryBuilder extends CommonQueryBuilder {
@@ -136,7 +144,7 @@ export function useQueryBuilder<T extends ElementType>(
     const route = useRoute();
     const previewToken = route.query.token;
     const { data, error } = await useFetch(
-      `http://127.0.0.1:62603/v1/api/customQuery?${queryString}${previewToken ? '&token=' + previewToken : ''}`,
+      `http://127.0.0.1:64155/v1/api/customQuery?${queryString}${previewToken ? '&token=' + previewToken : ''}`,
     );
 
     return { data, error };
@@ -222,6 +230,14 @@ export function useQueryBuilder<T extends ElementType>(
         params.value.filename = value;
         return this;
       },
+      site(value) {
+        params.value.site = value;
+        return this;
+      },
+      siteId(value) {
+        params.value.siteId = value;
+        return this;
+      },
     } as QueryBuilderMap[T];
   }
 
@@ -233,7 +249,9 @@ export function useQueryBuilder<T extends ElementType>(
         return this;
       },
       uri(value) {
-        params.value.uri = Array.isArray(value) ? value.filter(value => value !== '').join('/') : value;
+        params.value.uri = Array.isArray(value)
+          ? value.filter((value) => value !== '').join('/')
+          : value;
         return this;
       },
       section(value) {
@@ -242,6 +260,14 @@ export function useQueryBuilder<T extends ElementType>(
       },
       postDate(value) {
         params.value.postDate = value;
+        return this;
+      },
+      site(value) {
+        params.value.site = value;
+        return this;
+      },
+      siteId(value) {
+        params.value.siteId = value;
         return this;
       },
     } as QueryBuilderMap[T];

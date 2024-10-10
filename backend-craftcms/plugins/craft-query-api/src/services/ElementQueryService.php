@@ -19,8 +19,8 @@ class ElementQueryService
 
   private array $allowedMethods = [
       'addresses' => ['addressLine1', 'addressLine2', 'addressLine3', 'locality', 'organization', 'fullName'],
-      'assets' => ['volume', 'kind', 'filename'],
-      'entries' => ['slug', 'uri', 'section', 'postDate'],
+      'assets' => ['volume', 'kind', 'filename', 'site', 'siteId'],
+      'entries' => ['slug', 'uri', 'section', 'postDate', 'site', 'siteId'],
       'users' => ['group', 'groupId', 'authorOf', 'email', 'fullName', 'hasPhoto'],
   ];
 
