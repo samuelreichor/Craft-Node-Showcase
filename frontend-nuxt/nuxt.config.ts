@@ -12,6 +12,9 @@ export default defineNuxtConfig({
   nitro: {
     compressPublicAssets: true,
   },
+  plugins: [
+      '~/plugins/craft-nuxt.ts'
+  ]
 
   // TODO: Add prerender hook for static rendering
 });

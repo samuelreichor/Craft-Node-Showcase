@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@nuxtjs/tailwindcss": "^6.12.1",
-    "craft-vue-sdk": "1.0.5",
+    "craft-vue-sdk": "./craft-vue-sdk-1.0.12.tgz",
     "nuxt": "^3.13.0"
   },
   "devDependencies": {

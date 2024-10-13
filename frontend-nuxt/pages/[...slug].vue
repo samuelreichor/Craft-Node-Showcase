@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-  import { CraftPage } from 'craft-vue-sdk';
-  import PageHome from '~/templates/pages/home.vue';
+import {useQueryBuilder} from "craft-vue-sdk";
+import PageHome from '~/templates/pages/home.vue';
   import PageNews from '~/templates/pages/news.vue';
   import Page404 from '~/templates/pages/404.vue';
   import PageBlog from '~/templates/pages/blog.vue'
@@ -13,13 +13,14 @@
     .uri(route.params.slug || '__home__')
     .one()
 
-  if (error.value) {
+
+/*   if (error) {
     throw createError({
-      ...error.value,
+      ...error,
       statusMessage: `Could not fetch data from endpoint`,
     });
   }
-
+ */
   const mapping = {
     pages: {
       'home': PageHome,
@@ -39,4 +40,3 @@
     <CraftPageLocal v-if="data" :config="mapping" :content="data" />
   </div>
 </template>
- 
