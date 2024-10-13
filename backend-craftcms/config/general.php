@@ -17,6 +17,7 @@ return [
         'allowedGraphqlOrigins' => [
             'http://localhost:3000',
         ],
+        'headlessMode' => true,
         'allowAdminChanges' => false,
         'allowedFileExtensions' => ['jpg', 'png', 'jpeg', 'webp', 'gif', 'svg', 'mp4', 'pdf', 'zip', 'csv'],
         'extraFileKinds' => [
